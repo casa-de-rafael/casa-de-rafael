@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa De Rafael — Authentic Latin Cuisine</title>
+    <meta name="description" content="Casa De Rafael serves authentic Latin American cuisine crafted with love, tradition, and the freshest ingredients. Visit us for an unforgettable dining experience.">
+    <meta name="keywords" content="Casa De Rafael, Latin food, authentic cuisine, Mexican restaurant, tacos, fajitas, enchiladas">
+    <meta name="author" content="Casa De Rafael">
+    <meta property="og:title" content="Casa De Rafael — Authentic Latin Cuisine">
+    <meta property="og:description" content="Authentic Latin cuisine crafted with love & tradition. Fresh ingredients, time-honored recipes.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo" aria-label="Casa De Rafael - Home">
+                <span class="logo-accent">Casa De</span>
+                <span class="logo-main">Rafael</span>
+            </a>
+            <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu" class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#contact" class="nav-link nav-cta">Reserve a Table</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" aria-hidden="true"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle animate-fade-up">— Welcome to —</p>
+            <h1 class="hero-title animate-fade-up delay-1">Casa De <span class="text-accent">Rafael</span></h1>
+            <p class="hero-tagline animate-fade-up delay-2">Authentic Latin Cuisine, Crafted with Love & Tradition</p>
+            <div class="hero-buttons animate-fade-up delay-3">
+                <a href="#menu" class="btn btn-primary" id="explore-menu-btn">Explore Our Menu</a>
+                <a href="#contact" class="btn btn-outline" id="book-table-btn">Book a Table</a>
+            </div>
+            <div class="hero-scroll animate-fade-up delay-4">
+                <span>Scroll to Discover</span>
+                <div class="scroll-indicator"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Strip -->
+    <section class="features-strip" aria-label="Restaurant highlights">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔥</div>
+                    <div class="feature-text">
+                        <h3>Fresh Daily</h3>
+                        <p>Ingredients sourced every morning</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👨‍🍳</div>
+                    <div class="feature-text">
+                        <h3>Master Chef</h3>
+                        <p>25+ years of culinary expertise</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌶️</div>
+                    <div class="feature-text">
+                        <h3>Authentic Recipes</h3>
+                        <p>Passed down for generations</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">❤️</div>
+                    <div class="feature-text">
+                        <h3>Made with Love</h3>
+                        <p>Every dish tells a story</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Specialties</span>
+                <h2 class="section-title">The <span class="text-accent">Menu</span></h2>
+                <p class="section-desc">Every dish is a celebration of authentic flavors, prepared with the finest ingredients and time-honored techniques.</p>
+            </div>
+
+            <div class="menu-filter" role="tablist" aria-label="Menu categories">
+                <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" id="filter-all">All</button>
+                <button class="filter-btn" data-filter="mains" role="tab" aria-selected="false" id="filter-mains">Main Course</button>
+                <button class="filter-btn" data-filter="appetizers" role="tab" aria-selected="false" id="filter-appetizers">Appetizers</button>
+                <button class="filter-btn" data-filter="desserts" role="tab" aria-selected="false" id="filter-desserts">Desserts</button>
+            </div>
+
+            <div class="menu-grid" id="menu-grid">
+                <article class="menu-card" data-category="mains">
+                    <div class="menu-card-img">
+                        <img src="images/tacos.png" alt="Tacos Al Pastor — marinated pork with pineapple on handmade tortillas" loading="lazy" width="400" height="220">
+                        <div class="menu-card-badge">Popular</div>
+                    </div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-header">
+                            <h3>Tacos Al Pastor</h3>
+                            <span class="menu-price">₱185</span>
+                        </div>
+                        <p>Marinated pork with grilled pineapple, fresh cilantro, onions, and house-made salsa verde on handmade corn tortillas.</p>
+                        <div class="menu-card-tags">
+                            <span class="tag">🌶️ Spicy</span>
+                            <span class="tag">🏆 Best Seller</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="menu-card" data-category="mains">
+                    <div class="menu-card-img">
+                        <img src="images/fajitas.png" alt="Sizzling Beef Fajitas with bell peppers" loading="lazy" width="400" height="220">
+                        <div class="menu-card-badge hot">Sizzling</div>
+                    </div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-header">
+                            <h3>Sizzling Beef Fajitas</h3>
+                            <span class="menu-price">₱320</span>
+                        </div>
+                        <p>Prime beef strips seared with bell peppers and onions, served on a hot cast iron skillet with warm tortillas, guacamole, and sour cream.</p>
+                        <div class="menu-card-tags">
+                            <span class="tag">🥩 Premium</span>
+                            <span class="tag">👨‍👩‍👧‍👦 Shareable</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="menu-card" data-category="mains">
+                    <div class="menu-card-img">
+                        <img src="images/enchiladas.png" alt="Enchiladas Rojas with ancho chile sauce" loading="lazy" width="400" height="220">
+                    </div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-header">
+                            <h3>Enchiladas Rojas</h3>
+                            <span class="menu-price">₱245</span>
+                        </div>
+                        <p>Corn tortillas filled with slow-cooked chicken, smothered in rich ancho chile sauce, topped with queso fresco and crema.</p>
+                        <div class="menu-card-tags">
+                            <span class="tag">🌶️ Mild Heat</span>
+                            <span class="tag">🧀 Cheesy</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="menu-card" data-category="mains">
+                    <div class="menu-card-img">
+                        <img src="images/burrito.png" alt="Grande Burrito stuffed with seasoned rice and beans" loading="lazy" width="400" height="220">
+                        <div class="menu-card-badge">Hearty</div>
+                    </div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-header">
+                            <h3>Grande Burrito</h3>
+                            <span class="menu-price">₱275</span>
+                        </div>
+                        <p>Oversized flour tortilla stuffed with seasoned rice, black beans, your choice of protein, cheese, pico de gallo, and guacamole.</p>
+                        <div class="menu-card-tags">
+                            <span class="tag">💪 Filling</span>
+                            <span class="tag">🌯 Customizable</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="menu-card" data-category="appetizers">
+                    <div class="menu-card-img">
+                        <img src="images/hero.png" alt="Plato Mixto sharing platter with grilled chicken and guacamole" loading="lazy" width="400" height="220">
+                        <div class="menu-card-badge sweet">Chef's Pick</div>
+                    </div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-header">
+                            <h3>Plato Mixto</h3>
+                            <span class="menu-price">₱350</span>
+                        </div>
+                        <p>A curated platter of grilled chicken, roasted vegetables, fresh guacamole, house-made salsas, and warm tortilla chips for sharing.</p>
+                        <div class="menu-card-tags">
+                            <span class="tag">👨‍👩‍👧‍👦 For Sharing</span>
+                            <span class="tag">⭐ Chef's Pick</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="menu-card" data-category="desserts">
+                    <div class="menu-card-img">
+                        <img src="images/churros.png" alt="Churros Con Chocolate with cinnamon sugar" loading="lazy" width="400" height="220">
+                        <div class="menu-card-badge sweet">Sweet</div>
+                    </div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-header">
+                            <h3>Churros Con Chocolate</h3>
+                            <span class="menu-price">₱145</span>
+                        </div>
+                        <p>Golden crispy churros dusted with cinnamon sugar, served with rich Mexican chocolate and dulce de leche dipping sauces.</p>
+                        <div class="menu-card-tags">
+                            <span class="tag">🍫 Sweet</span>
+                            <span class="tag">📸 Instagram Worthy</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-images">
+                    <div class="about-img-main">
+                        <img src="images/hero.png" alt="Chef Rafael preparing signature dishes in the kitchen" loading="lazy" width="600" height="400">
+                    </div>
+                    <div class="about-img-accent">
+                        <img src="images/enchiladas.png" alt="Close-up of our signature enchiladas" loading="lazy" width="180" height="180">
+                    </div>
+                    <div class="about-experience-badge">
+                        <span class="exp-number">25+</span>
+                        <span class="exp-text">Years of<br>Excellence</span>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-label">Our Story</span>
+                    <h2 class="section-title">About <span class="text-accent">Casa De Rafael</span></h2>
+                    <p class="about-lead">From a humble family kitchen to a beloved dining destination — our journey has always been about sharing the warmth and flavors of authentic Latin cuisine.</p>
+                    <p>Founded by Chef Rafael, Casa De Rafael is more than a restaurant — it's a gathering place where every meal is a celebration. Our recipes have been passed down through generations, each dish carrying the stories and traditions of our family.</p>
+                    <p>We believe in using only the freshest, locally-sourced ingredients, hand-picked daily to ensure every plate we serve bursts with authentic flavor. Our commitment to quality and tradition is what sets us apart.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-count="15000">0</span>
+                            <span class="stat-label">Happy Guests</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="50">0</span>
+                            <span class="stat-label">Signature Dishes</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="4.9">0</span>
+                            <span class="stat-label">Star Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section" aria-label="Customer reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What People Say</span>
+                <h2 class="section-title">Guest <span class="text-accent">Reviews</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <p>"The most authentic tacos I've ever had outside of Mexico. Every bite takes you on a journey. The ambiance is warm and inviting — truly a gem!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MG</div>
+                        <div>
+                            <strong>Maria Garcia</strong>
+                            <span>Food Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card featured">
+                    <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <p>"We celebrate every special occasion here. The fajitas are out of this world, and the churros? Absolutely unforgettable. Chef Rafael is a true artist."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JS</div>
+                        <div>
+                            <strong>Juan Santos</strong>
+                            <span>Regular Customer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <p>"From the moment you walk in, you feel the love in this place. The staff is incredible and the food is beyond compare. This is our family's favorite spot!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AC</div>
+                        <div>
+                            <strong>Ana Cruz</strong>
+                            <span>Local Resident</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Visual Feast</span>
+                <h2 class="section-title">Our <span class="text-accent">Gallery</span></h2>
+                <p class="section-desc">A glimpse into the flavors, colors, and experiences that await you at Casa De Rafael.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item large" tabindex="0" role="button" aria-label="View Signature Platter photo">
+                    <img src="images/hero.png" alt="Signature grilled platter with fresh herbs" loading="lazy" width="600" height="250">
+                    <div class="gallery-overlay">
+                        <span>Signature Platter</span>
+                    </div>
+                </div>
+                <div class="gallery-item" tabindex="0" role="button" aria-label="View Tacos Al Pastor photo">
+                    <img src="images/tacos.png" alt="Tacos Al Pastor close-up" loading="lazy" width="300" height="250">
+                    <div class="gallery-overlay">
+                        <span>Tacos Al Pastor</span>
+                    </div>
+                </div>
+                <div class="gallery-item" tabindex="0" role="button" aria-label="View Churros Con Chocolate photo">
+                    <img src="images/churros.png" alt="Churros dessert with chocolate dipping sauce" loading="lazy" width="300" height="250">
+                    <div class="gallery-overlay">
+                        <span>Churros Con Chocolate</span>
+                    </div>
+                </div>
+                <div class="gallery-item" tabindex="0" role="button" aria-label="View Sizzling Fajitas photo">
+                    <img src="images/fajitas.png" alt="Sizzling fajitas on a cast iron skillet" loading="lazy" width="300" height="250">
+                    <div class="gallery-overlay">
+                        <span>Sizzling Fajitas</span>
+                    </div>
+                </div>
+                <div class="gallery-item" tabindex="0" role="button" aria-label="View Enchiladas Rojas photo">
+                    <img src="images/enchiladas.png" alt="Enchiladas Rojas with queso fresco topping" loading="lazy" width="300" height="250">
+                    <div class="gallery-overlay">
+                        <span>Enchiladas Rojas</span>
+                    </div>
+                </div>
+                <div class="gallery-item large" tabindex="0" role="button" aria-label="View Grande Burrito photo">
+                    <img src="images/burrito.png" alt="Grande Burrito wrapped and sliced" loading="lazy" width="600" height="250">
+                    <div class="gallery-overlay">
+                        <span>Grande Burrito</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Reservation Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Get in Touch</span>
+                <h2 class="section-title">Visit <span class="text-accent">Us</span></h2>
+                <p class="section-desc">We'd love to welcome you. Drop by, call us, or send a message to reserve your table.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info-cards">
+                    <div class="info-card" id="info-location">
+                        <div class="info-icon">📍</div>
+                        <h3>Our Location</h3>
+                        <p>123 Rizal Avenue<br>Quezon City, Metro Manila<br>Philippines</p>
+                    </div>
+                    <div class="info-card" id="info-phone">
+                        <div class="info-icon">📞</div>
+                        <h3>Phone Number</h3>
+                        <p><a href="tel:+639123456789">+63 912 345 6789</a></p>
+                        <p><a href="tel:+6328765432">(02) 8765-4321</a></p>
+                    </div>
+                    <div class="info-card" id="info-hours">
+                        <div class="info-icon">🕐</div>
+                        <h3>Opening Hours</h3>
+                        <p>Monday – Friday: 10AM – 10PM<br>Saturday – Sunday: 9AM – 11PM</p>
+                    </div>
+                    <div class="info-card" id="info-email">
+                        <div class="info-icon">📧</div>
+                        <h3>Email Us</h3>
+                        <p><a href="mailto:hello@casaderafael.com">hello@casaderafael.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <h3>Reserve a Table</h3>
+                    <form id="reservation-form" class="contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="Juan Dela Cruz" required autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="juan@email.com" required autocomplete="email">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+63 912 345 6789" autocomplete="tel">
+                            </div>
+                            <div class="form-group">
+                                <label for="guests">Number of Guests</label>
+                                <select id="guests" name="guests">
+                                    <option value="1-2">1–2 Guests</option>
+                                    <option value="3-4">3–4 Guests</option>
+                                    <option value="5-6">5–6 Guests</option>
+                                    <option value="7+">7+ Guests</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Preferred Time</label>
+                                <input type="time" id="time" name="time" required>
+                            </div>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Special Requests</label>
+                            <textarea id="message" name="message" rows="3" placeholder="Any dietary requirements, celebrations, or preferences..."></textarea>
+                        </div>
+                        <button type="submit" id="submit-btn" class="btn btn-primary btn-full">Reserve Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="nav-logo" aria-label="Casa De Rafael - Home">
+                        <span class="logo-accent">Casa De</span>
+                        <span class="logo-main">Rafael</span>
+                    </a>
+                    <p>Bringing authentic Latin flavors to your table since 2001. Every dish is a love letter to our heritage.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-link" aria-label="Follow us on Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Follow us on Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Follow us on TikTok">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Hours</h4>
+                    <ul>
+                        <li>Mon – Fri: 10AM – 10PM</li>
+                        <li>Sat – Sun: 9AM – 11PM</li>
+                        <li>Holidays: 9AM – 10PM</li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+639123456789">+63 912 345 6789</a></li>
+                        <li><a href="mailto:hello@casaderafael.com">hello@casaderafael.com</a></li>
+                        <li>123 Rizal Avenue,<br>Quezon City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Casa De Rafael. All rights reserved.</p>
+                <p>Made with ❤️ and authentic flavor.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">&times;</button>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
