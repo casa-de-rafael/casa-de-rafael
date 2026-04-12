@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa De Rafael — Authentic Latin Cuisine</title>
-    <meta name="description" content="Casa De Rafael serves authentic Latin American cuisine crafted with love, tradition, and the freshest ingredients. Visit us for an unforgettable dining experience.">
-    <meta name="keywords" content="Casa De Rafael, Latin food, authentic cuisine, Mexican restaurant, tacos, fajitas, enchiladas">
+    <title>Casa De Rafael — Premium Event Food Carts & Catering</title>
+    <meta name="description" content="Casa De Rafael brings premium food carts, dessert bars, grazing tables, and bento meals to your events. Book us for your next celebration!">
+    <meta name="keywords" content="Casa De Rafael, food cart, event catering, dessert bar, grazing table, bento meals, street food, Philippines catering">
     <meta name="author" content="Casa De Rafael">
-    <meta property="og:title" content="Casa De Rafael — Authentic Latin Cuisine">
-    <meta property="og:description" content="Authentic Latin cuisine crafted with love & tradition. Fresh ingredients, time-honored recipes.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Casa De Rafael — Premium Event Food Carts & Catering">
+    <meta property="og:description" content="Premium food carts, dessert bars & catering for your events. Make your celebrations unforgettable!">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="images/Pegs/668891456_844231758709678_5193202154180138280_n.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/Pegs/670778963_976680444786338_7753344727005390432_n.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,8 +30,11 @@
     <nav id="navbar" class="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo" aria-label="Casa De Rafael - Home">
-                <span class="logo-accent">Casa De</span>
-                <span class="logo-main">Rafael</span>
+                <img src="images/Pegs/670778963_976680444786338_7753344727005390432_n.jpg" alt="Casa De Rafael Logo" class="nav-logo-img">
+                <div class="nav-logo-text">
+                    <span class="logo-accent">Casa De</span>
+                    <span class="logo-main">Rafael</span>
+                </div>
             </a>
             <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
                 <span></span>
@@ -31,11 +43,11 @@
             </button>
             <ul id="nav-menu" class="nav-menu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#menu" class="nav-link">Packages</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#gallery" class="nav-link">Gallery</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="#contact" class="nav-link nav-cta">Reserve a Table</a></li>
+                <li><a href="https://m.me/YourFacebookPage" target="_blank" rel="noopener noreferrer" class="nav-link nav-cta" id="nav-book-btn">💬 Message Us</a></li>
             </ul>
         </div>
     </nav>
@@ -45,14 +57,20 @@
         <div class="hero-overlay"></div>
         <div class="hero-particles" aria-hidden="true"></div>
         <div class="hero-content">
-            <p class="hero-subtitle animate-fade-up">— Casa De Rafael —</p>
-            <h1 class="hero-title animate-fade-up delay-1">Premium <span class="text-accent">Event Food Carts</span></h1>
-            <p class="hero-tagline animate-fade-up delay-2">FOOD CART (EVENTS) | FOOD TRAY &amp; PACKED/BENTO MEAL | DESSERT BAR / SWEET CORNER / GRAZING TABLE / STREET FOOD TABLE</p>
-            <div class="hero-buttons animate-fade-up delay-3">
-                <a href="#menu" class="btn btn-primary" id="explore-menu-btn">View Packages</a>
-                <a href="#contact" class="btn btn-outline" id="book-table-btn">Book for your Event</a>
+            <div class="hero-logo-badge animate-fade-up">
+                <img src="images/Pegs/670778963_976680444786338_7753344727005390432_n.jpg" alt="Casa De Rafael Logo" class="hero-logo-img">
             </div>
-            <div class="hero-scroll animate-fade-up delay-4">
+            <p class="hero-subtitle animate-fade-up delay-1">— Est. 2026 —</p>
+            <h1 class="hero-title animate-fade-up delay-2">Premium <span class="text-accent">Event Food Carts</span></h1>
+            <p class="hero-tagline animate-fade-up delay-3">FOOD CARTS &bull; DESSERT BARS &bull; GRAZING TABLES &bull; BENTO MEALS</p>
+            <div class="hero-buttons animate-fade-up delay-4">
+                <a href="#menu" class="btn btn-primary" id="explore-menu-btn">View Packages</a>
+                <a href="https://m.me/YourFacebookPage" target="_blank" rel="noopener noreferrer" class="btn btn-messenger" id="hero-message-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.092.301 2.246.464 3.443.464 6.627 0 12-4.975 12-11.111C24 4.974 18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8.2l3.131 3.26 5.887-3.26-6.559 6.763z"/></svg>
+                    Message Us on Facebook
+                </a>
+            </div>
+            <div class="hero-scroll animate-fade-up delay-5">
                 <span>Scroll to Discover</span>
                 <div class="scroll-indicator"></div>
             </div>
@@ -114,7 +132,7 @@
             <div class="menu-grid" id="menu-grid">
                 <article class="menu-card" data-category="carts">
                     <div class="menu-card-img">
-                        <img src="images/Pegs/670778963_976680444786338_7753344727005390432_n.jpg" alt="Casa De Rafael Food Cart Branding" loading="lazy" width="400" height="220" style="object-fit: contain; padding: 1rem; background: #fff;">
+                        <img src="images/Pegs/670778963_976680444786338_7753344727005390432_n.jpg" alt="Casa De Rafael Food Cart Branding" loading="lazy" width="400" height="220" style="object-fit: contain; padding: 1rem; background: #893e19;">
                         <div class="menu-card-badge">Popular</div>
                     </div>
                     <div class="menu-card-content">
@@ -132,7 +150,7 @@
 
                 <article class="menu-card" data-category="desserts">
                     <div class="menu-card-img">
-                        <img src="images/Pegs/666757902_1636736024232891_3753194691105789378_n.jpg" alt="Casa De Rafael Sweet Corner Branding" loading="lazy" width="400" height="220" style="object-fit: contain; padding: 1rem; background: #fff;">
+                        <img src="images/Pegs/666757902_1636736024232891_3753194691105789378_n.jpg" alt="Casa De Rafael Sweet Corner Branding" loading="lazy" width="400" height="220" style="object-fit: contain; padding: 1rem; background: #f5f3e6;">
                         <div class="menu-card-badge sweet">Sweet Setup</div>
                     </div>
                     <div class="menu-card-content">
@@ -203,39 +221,39 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">What People Say</span>
-                <h2 class="section-title">Guest <span class="text-accent">Reviews</span></h2>
+                <h2 class="section-title">Client <span class="text-accent">Reviews</span></h2>
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                    <p>"The most authentic tacos I've ever had outside of Mexico. Every bite takes you on a journey. The ambiance is warm and inviting — truly a gem!"</p>
+                    <p>"Casa De Rafael made our son's birthday party so special! The food cart setup was amazing and all the kids loved the ice cream and fries. Absolutely hassle-free!"</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">MG</div>
+                        <div class="author-avatar">MR</div>
                         <div>
-                            <strong>Maria Garcia</strong>
-                            <span>Food Enthusiast</span>
+                            <strong>Maria Reyes</strong>
+                            <span>Birthday Celebration</span>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card featured">
                     <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                    <p>"We celebrate every special occasion here. The fajitas are out of this world, and the churros? Absolutely unforgettable. Chef Rafael is a true artist."</p>
+                    <p>"We booked them for our company team building event. The grazing table and dessert bar were Instagram-worthy! Our employees couldn't stop raving about the food."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">JS</div>
                         <div>
                             <strong>Juan Santos</strong>
-                            <span>Regular Customer</span>
+                            <span>Corporate Event</span>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                    <p>"From the moment you walk in, you feel the love in this place. The staff is incredible and the food is beyond compare. This is our family's favorite spot!"</p>
+                    <p>"From the first message on Facebook to the event day itself, everything was smooth and professional. The bento meals were delicious and beautifully packed. Highly recommend!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">AC</div>
                         <div>
                             <strong>Ana Cruz</strong>
-                            <span>Local Resident</span>
+                            <span>Wedding Reception</span>
                         </div>
                     </div>
                 </div>
@@ -280,82 +298,107 @@
         </div>
     </section>
 
-    <!-- Contact / Reservation Section -->
+    <!-- Book / CTA Section (replaces old reservation form) -->
+    <section id="book" class="book-section">
+        <div class="book-bg-pattern" aria-hidden="true"></div>
+        <div class="container">
+            <div class="book-content">
+                <div class="book-text">
+                    <span class="section-label">Ready to Party?</span>
+                    <h2 class="section-title">Let's Make Your <span class="text-accent">Event</span> Unforgettable</h2>
+                    <p class="book-desc">Send us a message on Facebook Messenger and we'll help you plan the perfect food setup for your celebration. We respond fast! 🚀</p>
+                    <div class="book-steps">
+                        <div class="book-step">
+                            <div class="step-number">1</div>
+                            <div class="step-info">
+                                <h4>Message Us</h4>
+                                <p>Tell us about your event, date, and estimated guest count.</p>
+                            </div>
+                        </div>
+                        <div class="book-step">
+                            <div class="step-number">2</div>
+                            <div class="step-info">
+                                <h4>Get a Quote</h4>
+                                <p>We'll customize a package and send you a detailed quotation.</p>
+                            </div>
+                        </div>
+                        <div class="book-step">
+                            <div class="step-number">3</div>
+                            <div class="step-info">
+                                <h4>Celebrate!</h4>
+                                <p>Sit back, relax, and let us handle the food for your big day.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://m.me/YourFacebookPage" target="_blank" rel="noopener noreferrer" class="btn btn-messenger btn-lg" id="book-messenger-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.092.301 2.246.464 3.443.464 6.627 0 12-4.975 12-11.111C24 4.974 18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8.2l3.131 3.26 5.887-3.26-6.559 6.763z"/></svg>
+                        Chat With Us on Messenger
+                    </a>
+                    <p class="book-note">💡 You can also call us at <a href="tel:+639123456789">+63 912 345 6789</a></p>
+                </div>
+                <div class="book-visual">
+                    <div class="book-phone-mockup">
+                        <div class="phone-header">
+                            <img src="images/Pegs/670778963_976680444786338_7753344727005390432_n.jpg" alt="Casa De Rafael" class="phone-avatar">
+                            <div>
+                                <strong>Casa De Rafael</strong>
+                                <span>Active Now</span>
+                            </div>
+                        </div>
+                        <div class="phone-messages">
+                            <div class="msg msg-bot">
+                                <p>Hi! 👋 Welcome to Casa De Rafael!</p>
+                            </div>
+                            <div class="msg msg-bot">
+                                <p>How can we help you? Are you looking to book us for an event? 🎉</p>
+                            </div>
+                            <div class="msg msg-user">
+                                <p>Yes! I need food carts for a birthday party this Saturday 🥳</p>
+                            </div>
+                            <div class="msg msg-bot">
+                                <p>Awesome! How many guests are you expecting? We'll prepare a custom quote for you! 📋</p>
+                            </div>
+                        </div>
+                        <div class="phone-input">
+                            <span>Type a message...</span>
+                            <div class="phone-send">➤</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Info only, no form) -->
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Get in Touch</span>
-                <h2 class="section-title">Visit <span class="text-accent">Us</span></h2>
-                <p class="section-desc">We'd love to welcome you. Drop by, call us, or send a message to reserve your table.</p>
+                <h2 class="section-title">Contact <span class="text-accent">Us</span></h2>
+                <p class="section-desc">Reach out through any of these channels — we'd love to hear from you!</p>
             </div>
-            <div class="contact-grid">
-                <div class="contact-info-cards">
-                    <div class="info-card" id="info-location">
-                        <div class="info-icon">📍</div>
-                        <h3>Our Location</h3>
-                        <p>123 Rizal Avenue<br>Quezon City, Metro Manila<br>Philippines</p>
-                    </div>
-                    <div class="info-card" id="info-phone">
-                        <div class="info-icon">📞</div>
-                        <h3>Phone Number</h3>
-                        <p><a href="tel:+639123456789">+63 912 345 6789</a></p>
-                        <p><a href="tel:+6328765432">(02) 8765-4321</a></p>
-                    </div>
-                    <div class="info-card" id="info-hours">
-                        <div class="info-icon">🕐</div>
-                        <h3>Opening Hours</h3>
-                        <p>Monday – Friday: 10AM – 10PM<br>Saturday – Sunday: 9AM – 11PM</p>
-                    </div>
-                    <div class="info-card" id="info-email">
-                        <div class="info-icon">📧</div>
-                        <h3>Email Us</h3>
-                        <p><a href="mailto:casa.de.rafael0@gmail.com">casa.de.rafael0@gmail.com</a></p>
-                    </div>
+            <div class="contact-cards-grid">
+                <div class="info-card" id="info-messenger">
+                    <div class="info-icon">💬</div>
+                    <h3>Facebook Messenger</h3>
+                    <p>The fastest way to reach us!</p>
+                    <a href="https://m.me/YourFacebookPage" target="_blank" rel="noopener noreferrer" class="info-card-link">Open Messenger →</a>
                 </div>
-                <div class="contact-form-wrapper">
-                    <h3>Reserve a Table</h3>
-                    <form id="reservation-form" class="contact-form" novalidate>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" name="name" placeholder="Juan Dela Cruz" required autocomplete="name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="juan@email.com" required autocomplete="email">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+63 912 345 6789" autocomplete="tel">
-                            </div>
-                            <div class="form-group">
-                                <label for="guests">Number of Guests</label>
-                                <select id="guests" name="guests">
-                                    <option value="1-2">1–2 Guests</option>
-                                    <option value="3-4">3–4 Guests</option>
-                                    <option value="5-6">5–6 Guests</option>
-                                    <option value="7+">7+ Guests</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="date">Date</label>
-                                <input type="date" id="date" name="date" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="time">Preferred Time</label>
-                                <input type="time" id="time" name="time" required>
-                            </div>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="message">Special Requests</label>
-                            <textarea id="message" name="message" rows="3" placeholder="Any dietary requirements, celebrations, or preferences..."></textarea>
-                        </div>
-                        <button type="submit" id="submit-btn" class="btn btn-primary btn-full">Reserve Now</button>
-                    </form>
+                <div class="info-card" id="info-phone">
+                    <div class="info-icon">📞</div>
+                    <h3>Phone / Text</h3>
+                    <p><a href="tel:+639123456789">+63 912 345 6789</a></p>
+                </div>
+                <div class="info-card" id="info-email">
+                    <div class="info-icon">📧</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:casa.de.rafael0@gmail.com">casa.de.rafael0@gmail.com</a></p>
+                </div>
+                <div class="info-card" id="info-facebook">
+                    <div class="info-icon">📘</div>
+                    <h3>Facebook Page</h3>
+                    <p>Follow us for latest updates!</p>
+                    <a href="https://facebook.com/YourFacebookPage" target="_blank" rel="noopener noreferrer" class="info-card-link">Visit Page →</a>
                 </div>
             </div>
         </div>
@@ -367,12 +410,15 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#home" class="nav-logo" aria-label="Casa De Rafael - Home">
-                        <span class="logo-accent">Casa De</span>
-                        <span class="logo-main">Rafael</span>
+                        <img src="images/Pegs/670778963_976680444786338_7753344727005390432_n.jpg" alt="Casa De Rafael Logo" class="nav-logo-img">
+                        <div class="nav-logo-text">
+                            <span class="logo-accent">Casa De</span>
+                            <span class="logo-main">Rafael</span>
+                        </div>
                     </a>
-                    <p>Bringing authentic Latin flavors to your table since 2001. Every dish is a love letter to our heritage.</p>
+                    <p>Bringing premium food carts, dessert bars, and catering to your celebrations since 2026.</p>
                     <div class="footer-socials">
-                        <a href="#" class="social-link" aria-label="Follow us on Facebook">
+                        <a href="https://facebook.com/YourFacebookPage" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on Facebook">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
                         <a href="#" class="social-link" aria-label="Follow us on Instagram">
@@ -387,18 +433,20 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#menu">Packages</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Hours</h4>
+                    <h4>Our Services</h4>
                     <ul>
-                        <li>Mon – Fri: 10AM – 10PM</li>
-                        <li>Sat – Sun: 9AM – 11PM</li>
-                        <li>Holidays: 9AM – 10PM</li>
+                        <li>Food Cart (Events)</li>
+                        <li>Dessert Bar</li>
+                        <li>Grazing Table</li>
+                        <li>Food Trays</li>
+                        <li>Bento Meals</li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -406,13 +454,13 @@
                     <ul>
                         <li><a href="tel:+639123456789">+63 912 345 6789</a></li>
                         <li><a href="mailto:casa.de.rafael0@gmail.com">casa.de.rafael0@gmail.com</a></li>
-                        <li>123 Rizal Avenue,<br>Quezon City</li>
+                        <li><a href="https://m.me/YourFacebookPage" target="_blank" rel="noopener noreferrer">Facebook Messenger</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Casa De Rafael. All rights reserved.</p>
-                <p>Made with ❤️ and authentic flavor.</p>
+                <p>Made with ❤️ for every celebration.</p>
             </div>
         </div>
     </footer>
@@ -422,6 +470,37 @@
         <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">&times;</button>
         <img id="lightbox-img" src="" alt="">
     </div>
+
+    <!-- Messenger Chat Plugin Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Chat Plugin code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "108019310984864");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v18.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <script src="script.js"></script>
 </body>

@@ -211,71 +211,9 @@ document.addEventListener('DOMContentLoaded', () => {
         counterObserver.observe(aboutSection);
     }
 
-    // --- Form handling ---
-    const form = document.getElementById('reservation-form');
-    if (form) {
-        // Set min date to today
-        const dateInput = document.getElementById('date');
-        if (dateInput) {
-            const today = new Date().toISOString().split('T')[0];
-            dateInput.setAttribute('min', today);
-        }
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const submitBtn = document.getElementById('submit-btn');
-            const originalText = submitBtn.textContent;
-
-            // Simulate submission with loading state
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.7';
-            submitBtn.style.pointerEvents = 'none';
-
-            setTimeout(() => {
-                submitBtn.textContent = '✓ Reserved!';
-                submitBtn.style.opacity = '1';
-                submitBtn.style.background = 'linear-gradient(135deg, #27ae60, #2ecc71)';
-
-                showToast('Reservation submitted! We\'ll confirm shortly. 🎉');
-
-                setTimeout(() => {
-                    form.reset();
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.pointerEvents = '';
-                    submitBtn.style.background = '';
-                }, 2500);
-            }, 1200);
-        });
-    }
-
-    // --- Toast notification ---
-    function showToast(message) {
-        const existing = document.querySelector('.toast');
-        if (existing) existing.remove();
-
-        const toast = document.createElement('div');
-        toast.className = 'toast';
-        toast.textContent = message;
-        toast.setAttribute('role', 'alert');
-        toast.setAttribute('aria-live', 'polite');
-        document.body.appendChild(toast);
-
-        requestAnimationFrame(() => {
-            toast.classList.add('show');
-        });
-
-        setTimeout(() => {
-            toast.classList.remove('show');
-            setTimeout(() => toast.remove(), 400);
-        }, 4000);
-    }
-
     // --- Scroll reveal animations (Intersection Observer) ---
     const revealElements = document.querySelectorAll(
-        '.menu-card, .feature-item, .testimonial-card, .gallery-item, .info-card, .about-content, .about-images, .contact-form-wrapper'
+        '.menu-card, .feature-item, .testimonial-card, .gallery-item, .info-card, .about-content, .about-images, .book-step, .book-phone-mockup'
     );
 
     revealElements.forEach(el => el.classList.add('reveal'));
@@ -329,4 +267,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- Messenger chat animation (subtle typing indicator in mockup) ---
+    const phoneMessages = document.querySelector('.phone-messages');
+    if (phoneMessages) {
+        // Add a subtle animation class after page load
+        setTimeout(() => {
+            phoneMessages.querySelectorAll('.msg').forEach((msg, i) => {
+                msg.style.opacity = '0';
+                msg.style.transform = 'translateY(10px)';
+                msg.style.transition = `opacity 0.5s ease ${i * 0.4}s, transform 0.5s ease ${i * 0.4}s`;
+
+                const msgObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            msg.style.opacity = '1';
+                            msg.style.transform = 'translateY(0)';
+                            msgObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                msgObserver.observe(phoneMessages);
+            });
+        }, 300);
+    }
 });
