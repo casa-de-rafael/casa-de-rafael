@@ -5,35 +5,35 @@
 
 /* --- CSS Variables / Design Tokens --- */
 :root {
-    /* Warm dark palette */
-    --color-bg: #0f0d0b;
-    --color-bg-alt: #1a1612;
-    --color-bg-card: #211d18;
-    --color-bg-elevated: #2a2520;
+    /* Bright & Elegant Palette */
+    --color-bg: #f5f3e6;
+    --color-bg-alt: #ece9d8;
+    --color-bg-card: #ffffff;
+    --color-bg-elevated: #ffffff;
 
-    /* Primary warm gold/amber */
-    --color-primary: #d4872c;
-    --color-primary-light: #e8a24e;
-    --color-primary-dark: #b16e1e;
+    /* Primary Navy */
+    --color-primary: #283a48;
+    --color-primary-light: #3d5466;
+    --color-primary-dark: #192631;
 
-    /* Accent rich red */
-    --color-accent: #c93c20;
-    --color-accent-light: #e85438;
+    /* Accent Rust */
+    --color-accent: #893e19;
+    --color-accent-light: #a94f23;
 
-    /* Warm highlight */
-    --color-warm: #f2c94c;
+    /* Warm Gold */
+    --color-warm: #c5a059;
 
     /* Text hierarchy */
-    --color-text: #f5ede4;
-    --color-text-muted: #a89a8b;
-    --color-text-dim: #7a6e62;
+    --color-text: #192631;
+    --color-text-muted: #3d5466;
+    --color-text-dim: #5c7487;
 
     /* Borders */
-    --color-border: rgba(212, 135, 44, 0.15);
-    --color-border-hover: rgba(212, 135, 44, 0.35);
+    --color-border: rgba(40, 58, 72, 0.15);
+    --color-border-hover: rgba(40, 58, 72, 0.35);
 
     /* Typography */
-    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-heading: 'Libre Baskerville', Georgia, serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-script: 'Dancing Script', cursive;
 
