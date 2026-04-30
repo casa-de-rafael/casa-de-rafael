@@ -1,5 +1,5 @@
 /* ============================================
-   Casa De Rafael — Interactive Script
+   Casa De Rafael MNL — Interactive Script
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -271,7 +271,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Messenger chat animation (subtle typing indicator in mockup) ---
     const phoneMessages = document.querySelector('.phone-messages');
     if (phoneMessages) {
-        // Add a subtle animation class after page load
         setTimeout(() => {
             phoneMessages.querySelectorAll('.msg').forEach((msg, i) => {
                 msg.style.opacity = '0';
@@ -292,4 +291,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, 300);
     }
+
+    // --- Menu card image slideshow (auto-cycle) ---
+    const slideshows = document.querySelectorAll('[data-slideshow]');
+    slideshows.forEach(slideshow => {
+        const images = slideshow.querySelectorAll('img');
+        if (images.length <= 1) return;
+        let current = 0;
+        setInterval(() => {
+            images[current].classList.remove('slide-active');
+            current = (current + 1) % images.length;
+            images[current].classList.add('slide-active');
+        }, 3000);
+    });
 });
+
