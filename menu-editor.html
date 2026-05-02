@@ -170,12 +170,38 @@
             '}' +
           '};' +
           'makeEditable(document.body);' +
+          
+          'const fileInput = document.createElement("input");' +
+          'fileInput.type = "file"; fileInput.accept = "image/*"; fileInput.style.display = "none";' +
+          'document.body.appendChild(fileInput);' +
+          'let currentImage = null;' +
+          'fileInput.addEventListener("change", (e) => {' +
+            'const file = e.target.files[0];' +
+            'if (file && currentImage) {' +
+              'const reader = new FileReader();' +
+              'reader.onload = (event) => { currentImage.src = event.target.result; };' +
+              'reader.readAsDataURL(file);' +
+            '}' +
+          '});' +
+          'document.querySelectorAll("img").forEach(img => {' +
+            'img.style.cursor = "pointer";' +
+            'img.title = "Click to change image";' +
+            'img.addEventListener("mouseenter", () => { img.style.opacity = "0.7"; });' +
+            'img.addEventListener("mouseleave", () => { img.style.opacity = "1"; });' +
+            'img.addEventListener("click", (e) => { e.preventDefault(); currentImage = img; fileInput.click(); });' +
+          '});' +
+          
+          'document.addEventListener("contextmenu", (e) => {' +
+            'e.preventDefault();' +
+            'if (confirm("Hide this element?")) { e.target.style.display = "none"; }' +
+          '});' +
         '});' +
         
         'window.generateDataURL = async function() {' +
           'const target = document.querySelector(".bento-board, .menu-board, .combined-board") || document.body;' +
           'const editables = target.querySelectorAll(\'[contenteditable="true"]\');' +
           'editables.forEach(el => { el.style.boxShadow = "none"; el.style.backgroundColor = "transparent"; });' +
+          'document.querySelectorAll("img").forEach(img => { img.style.opacity = "1"; });' +
           
           'const canvas = await html2canvas(target, {' +
           '  backgroundColor: null,' +
