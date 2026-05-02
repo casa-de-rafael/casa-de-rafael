@@ -234,16 +234,17 @@ a:hover {
 }
 
 .btn-outline {
-    background: transparent;
-    color: var(--color-text);
-    border-color: rgba(245, 237, 228, 0.3);
-    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(6px);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 
 .btn-outline:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary-light);
-    background: rgba(40, 58, 72, 0.08);
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.9);
+    color: #fff;
 }
 
 .btn-full {
