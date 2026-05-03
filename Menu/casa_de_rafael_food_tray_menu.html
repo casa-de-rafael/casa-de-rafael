@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa De Rafael — Food Tray Menu</title>
+  <meta name="description"
+    content="Casa De Rafael Manila Food Tray Menu — Chicken, Pork, Beef, Fish, Pasta, Vegetables, Desserts. Est. 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .menu-board {
+      background: #7B3A1E;
+      font-family: 'Lato', sans-serif;
+      color: #F5DFA0;
+      width: 100%;
+      max-width: 960px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 168, 67, 0.15);
+    }
+
+    /* Header */
+    .header-band {
+      background: #5A2610;
+      padding: 18px 32px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #D4A843;
+    }
+
+    .logo-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 2px solid #D4A843;
+      overflow: hidden;
+      background: #3D1A0A;
+      flex-shrink: 0;
+      transition: box-shadow 0.3s;
+    }
+
+    .logo-circle:hover {
+      box-shadow: 0 0 16px rgba(212, 168, 67, 0.4);
+    }
+
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-block {
+      text-align: center;
+      flex: 1;
+    }
+
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #D4A843;
+      letter-spacing: 3px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .brand-city {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      color: #D4A843;
+      letter-spacing: 2px;
+    }
+
+    .brand-sub {
+      font-size: 10px;
+      color: #C49A30;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .serves-info {
+      width: 72px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .serves-label {
+      font-size: 9px;
+      color: #C49A30;
+      letter-spacing: 1px;
+    }
+
+    .serves-detail {
+      font-size: 10px;
+      color: #D4A843;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    /* Title Band */
+    .menu-title-band {
+      background: linear-gradient(90deg, #C49A30, #D4A843, #E8C060, #D4A843, #C49A30);
+      text-align: center;
+      padding: 8px;
+    }
+
+    .menu-title-band span {
+      font-family: 'Playfair Display', serif;
+      color: #5A2610;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+    }
+
+    /* Content */
+    .content {
+      padding: 20px 28px 24px;
+    }
+
+    .tray-note {
+      text-align: center;
+      font-size: 11px;
+      color: #C49A30;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    /* 3-Column Grid */
+    .sections-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0 20px;
+    }
+
+    .section {
+      margin-bottom: 16px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .section-dot {
+      width: 6px;
+      height: 6px;
+      background: #D4A843;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      color: #D4A843;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .size-row {
+      display: grid;
+      grid-template-columns: 1fr 54px 54px;
+      font-size: 9px;
+      color: #C49A30;
+      letter-spacing: 1px;
+      padding: 0 0 4px;
+      text-align: right;
+    }
+
+    .size-row span:first-child {
+      text-align: left;
+    }
+
+    .item-row {
+      display: grid;
+      grid-template-columns: 1fr 54px 54px;
+      font-size: 11px;
+      color: #F5DFA0;
+      padding: 3px 0;
+      border-bottom: 0.5px solid rgba(196, 154, 48, 0.2);
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    .item-row:hover {
+      background: rgba(212, 168, 67, 0.06);
+    }
+
+    .item-row span:last-child,
+    .item-row span:nth-child(2) {
+      text-align: right;
+      color: #D4A843;
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #5A2610;
+      border-top: 2px solid #D4A843;
+      padding: 10px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-text {
+      font-size: 10px;
+      color: #C49A30;
+      letter-spacing: 1px;
+    }
+
+    /* Print */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .menu-board {
+        box-shadow: none;
+        border-radius: 0;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .sections-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header-band {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .serves-info {
+        text-align: center;
+        width: auto;
+      }
+
+      body {
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu-board" id="food-tray-menu">
+    <div class="header-band">
+      <div class="logo-circle"><img src="../images/logos/1_20260423_211737_0000.png" alt="Casa De Rafael Logo">
+      </div>
+      <div class="brand-block">
+        <div class="brand-name">CASA DE RAFAEL</div>
+        <div class="brand-city">Manila</div>
+        <div class="brand-sub">est. 2026 · Food Trays &amp; Packed Meals</div>
+      </div>
+      <div class="serves-info">
+        <div class="serves-label">SERVES</div>
+        <div class="serves-detail">Med · 10–12 pax</div>
+        <div class="serves-detail">Lrg · 15–20 pax</div>
+      </div>
+    </div>
+    <div class="menu-title-band"><span>Food Tray Menu</span></div>
+    <div class="content">
+      <div class="tray-note">All prices in Philippine Peso (₱) · Minimum order: 1 tray</div>
+      <div class="sections-grid">
+        <!-- Column 1 -->
+        <div>
+          <div class="section">
+            <div class="section-header">
+              <div class="section-dot"></div>
+              <div class="section-title">Chicken</div>
+            </div>
+            <div class="size-row"><span></span><span>Med</span><span>Lrg</span></div>
+            <div class="item-row"><span>Fried Chicken</span><span>1,299</span><span>2,598</span></div>
+            <div class="item-row"><span>Chicken Salpicao</span><span>1,299</span><span>2,598</span></div>
+            <div class="item-row"><span>Adobo with Egg</span><span>1,299</span><span>2,598</span></div>
+            <div class="item-row"><span>Chicken BBQ ★</span><span>1,399</span><span>2,798</span></div>
+            <div class="item-row"><span>Chicken Cordon Bleu</span><span>1,399</span><span>2,998</span></div>
+            <div class="item-row"><span>Chicken Wings</span><span>1,399</span><span>2,798</span></div>
+            <div class="item-row"><span>Chicken Inasal</span><span>1,599</span><span>2,698</span></div>
+          </div>
+          <div class="section">
+            <div class="section-header">
+              <div class="section-dot"></div>
+              <div class="section-title">Pasta &amp; Pancit</div>
+            </div>
+            <div class="size-row"><span></span><span>Med</span><span>Lrg</span></div>
+            <div class="item-row"><span>Bihon</span><span>1,099</span><span>2,198</span></div>
+            <div class="item-row"><span>Spaghetti</span><span>1,099</span><span>2,198</span></div>
+            <div class="item-row"><span>Baked Mac</span><span>1,099</span><span>2,198</span></div>
+            <div class="item-row"><span>Carbonara</span><span>1,099</span><span>2,198</span></div>
+            <div class="item-row"><span>Pancit Canton Guisado</span><span>1,099</span><span>2,198</span></div>
+          </div>
+          <div class="section">
+            <div class="section-header">
+              <div class="section-dot"></div>
+              <div class="section-title">Rice</div>
+            </div>
+            <div class="size-row"><span></span><span>Med</span><span>Lrg</span></div>
+            <div class="item-row"><span>Plain Rice</span><span>499</span><span>998</span></div>
+            <div class="item-row"><span>Garlic Rice</span><span>799</span><span>1,598</span></div>
+          </div>
+        </div>
+        <!-- Column 2 -->
+        <div>
+          <div class="section">
+            <div class="section-header">
+              <div class="section-dot"></div>
+              <div class="section-title">Pork</div>
+            </div>
+            <div class="size-row"><span></span><span>Med</span><span>Lrg</span></div>
+            <div class="item-row"><span>Sisig ★</span><span>1,299</span><span>2,598</span></div>
+            <div class="item-row"><span>Lumpia Shanghai</span><span>1,299</span><span>2,598</span></div>
+            <div class="item-row"><span>Sweet &amp; Sour Pork</span><span>1,299</span><span>2,598</span></div>
+            <div class="item-row"><span>Pork Adobo w/ Egg</span><span>1,299</span><span>2,598</span></div>
+            <div class="item-row"><span>Breaded Porkchop</span><span>1,299</span><span>2,598</span></div>
+            <div class="item-row"><span>Pork Steak</span><span>1,299</span><span>2,598</span></div>
+            <div class="item-row"><span>Menudo</span><span>1,299</span><span>2,598</span></div>
+            <div class="item-row"><span>Lechon Kawali</span><span>1,399</span><span>2,798</span></div>
+            <div class="item-row"><span>Lechon Paksiw</span><span>1,399</span><span>2,798</span></div>
+            <div class="item-row"><span>Kare-Kare Lechon</span><span>1,499</span><span>2,898</span></div>
+          </div>
+          <div class="section">
+            <div class="section-header">
+              <div class="section-dot"></div>
+              <div class="section-title">Vegetables</div>
+            </div>
+            <div class="size-row"><span></span><span>Med</span><span>Lrg</span></div>
+            <div class="item-row"><span>Pinakbet</span><span>1,099</span><span>2,198</span></div>
+            <div class="item-row"><span>Chopsuey</span><span>1,099</span><span>2,198</span></div>
+            <div class="item-row"><span>Adobong Sitaw</span><span>1,099</span><span>2,198</span></div>
+          </div>
+        </div>
+        <!-- Column 3 -->
+        <div>
+          <div class="section">
+            <div class="section-header">
+              <div class="section-dot"></div>
+              <div class="section-title">Beef</div>
+            </div>
+            <div class="size-row"><span></span><span>Med</span><span>Lrg</span></div>
+            <div class="item-row"><span>Bistek Tagalog</span><span>1,399</span><span>2,498</span></div>
+            <div class="item-row"><span>Beef with Mushroom</span><span>1,399</span><span>2,798</span></div>
+            <div class="item-row"><span>Beef Stroganoff</span><span>1,399</span><span>2,798</span></div>
+            <div class="item-row"><span>Beef Salpicao</span><span>1,399</span><span>2,798</span></div>
+            <div class="item-row"><span>Beef Caldereta ★</span><span>1,699</span><span>3,099</span></div>
+          </div>
+          <div class="section">
+            <div class="section-header">
+              <div class="section-dot"></div>
+              <div class="section-title">Fish</div>
+            </div>
+            <div class="size-row"><span></span><span>Med</span><span>Lrg</span></div>
+            <div class="item-row"><span>Breaded Fillet w/ Tartar</span><span>1,299</span><span>2,598</span></div>
+            <div class="item-row"><span>Sweet &amp; Sour Fish</span><span>1,299</span><span>2,598</span></div>
+            <div class="item-row"><span>Cheesy Bangus</span><span>1,299</span><span>2,598</span></div>
+            <div class="item-row"><span>Crispy Tawilis ★</span><span>1,299</span><span>2,598</span></div>
+            <div class="item-row"><span>Tempura ★</span><span>1,599</span><span>2,898</span></div>
+          </div>
+          <div class="section">
+            <div class="section-header">
+              <div class="section-dot"></div>
+              <div class="section-title">Dessert</div>
+            </div>
+            <div class="size-row"><span></span><span>Med</span><span>Lrg</span></div>
+            <div class="item-row"><span>Mango with Sago</span><span>499</span><span>998</span></div>
+            <div class="item-row"><span>Buko Pandan w/ Sago</span><span>499</span><span>998</span></div>
+            <div class="item-row"><span>Coffee Jelly</span><span>499</span><span>998</span></div>
+            <div class="item-row"><span>Leche Flan</span><span>499</span><span>998</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-text">Casa De Rafael MNL · Food Trays &amp; Packed Meals · est. 2026</div>
+      <div class="footer-text" style="text-align:right;">fb.com/casaderafaelmanila</div>
+    </div>
+  </div>
+</body>
+
+</html>

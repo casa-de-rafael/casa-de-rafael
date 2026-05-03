@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa De Rafael — Menu Board Gallery</title>
+  <meta name="description" content="Internal menu board drafts for review and download.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    :root {
+      --gold: #c5a059;
+      --dark: #1a1a2e;
+      --card-bg: #16213e;
+      --surface: #0f3460;
+      --text: #f5f3e6;
+      --muted: #9a8a6a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--dark);
+      font-family: 'Lato', sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Top bar ── */
+    .top-bar {
+      background: #0d0d1a;
+      border-bottom: 2px solid var(--gold);
+      padding: 18px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .top-brand { display: flex; align-items: center; gap: 14px; }
+    .top-logo {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 2px solid var(--gold); overflow: hidden;
+    }
+    .top-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .top-title-group h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; color: var(--gold); letter-spacing: 2px;
+    }
+    .top-title-group p { font-size: 10px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+    .btn-all-pdf {
+      background: linear-gradient(135deg, #c5a059, #dbb96a);
+      color: #0d0d1a; font-weight: 700; font-size: 12px;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 10px 24px; border: none; border-radius: 6px;
+      cursor: pointer; transition: opacity 0.2s, transform 0.1s;
+    }
+    .btn-all-pdf:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-all-pdf:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── Progress bar ── */
+    #progress-wrap { display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 999; height: 3px; background: rgba(255,255,255,0.1); }
+    #progress-bar { height: 100%; background: var(--gold); width: 0; transition: width 0.3s; }
+    #status-toast {
+      display: none; position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+      background: #0d0d1a; border: 1px solid var(--gold); color: var(--gold);
+      font-size: 12px; letter-spacing: 1px; padding: 10px 24px; border-radius: 6px;
+      z-index: 999; white-space: nowrap;
+    }
+
+    /* ── Main layout ── */
+    main { padding: 40px 40px 60px; max-width: 1300px; margin: 0 auto; }
+
+    .section-label {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px; margin-top: 40px;
+    }
+    .section-label:first-of-type { margin-top: 0; }
+    .section-label h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; color: var(--gold); letter-spacing: 2px;
+    }
+    .section-line { flex: 1; height: 1px; background: rgba(197,160,89,0.25); }
+
+    .pair-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 12px;
+    }
+
+    /* ── Menu card ── */
+    .menu-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(197,160,89,0.2);
+      border-radius: 10px; overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .menu-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+
+    .card-preview {
+      width: 100%;
+      height: 320px;
+      position: relative;
+      overflow: hidden;
+      background: #0a0a14;
+      cursor: pointer;
+    }
+    .card-preview iframe {
+      width: 960px;
+      height: 760px;
+      border: none;
+      transform-origin: top left;
+      pointer-events: none;
+    }
+    .preview-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(10,10,20,0.0);
+      transition: background 0.2s;
+    }
+    .card-preview:hover .preview-overlay { background: rgba(10,10,20,0.35); }
+    .preview-eye {
+      opacity: 0; transition: opacity 0.2s;
+      font-size: 11px; color: var(--gold);
+      letter-spacing: 2px; text-transform: uppercase;
+      border: 1px solid var(--gold); padding: 8px 18px; border-radius: 4px;
+    }
+    .card-preview:hover .preview-eye { opacity: 1; }
+
+    .card-info {
+      padding: 14px 16px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid rgba(197,160,89,0.15);
+    }
+    .card-name { font-size: 11px; color: var(--text); letter-spacing: 1px; }
+    .card-theme {
+      font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 20px; font-weight: 700;
+    }
+    .theme-warm { background: rgba(123,58,30,0.35); color: #D4A843; border: 1px solid rgba(212,168,67,0.3); }
+    .theme-navy { background: rgba(28,42,53,0.6); color: #c5a059; border: 1px solid rgba(197,160,89,0.3); }
+
+    .card-actions { padding: 0 16px 14px; display: flex; gap: 8px; }
+    .btn-png, .btn-pdf {
+      flex: 1; padding: 8px 0; border: none; border-radius: 5px;
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .btn-png:hover, .btn-pdf:hover { opacity: 0.8; transform: translateY(-1px); }
+    .btn-png:disabled, .btn-pdf:disabled { opacity: 0.45; cursor: not-allowed; }
+    .btn-png { background: rgba(197,160,89,0.12); color: var(--gold); border: 1px solid rgba(197,160,89,0.35); }
+    .btn-pdf { background: var(--gold); color: #0d0d1a; }
+
+    /* ── Lightbox ── */
+    #lightbox {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
+    }
+    #lightbox.active { display: flex; }
+    #lightbox-frame { width: 90vw; height: 90vh; border: none; border-radius: 6px; }
+    #lightbox-close {
+      position: fixed; top: 20px; right: 28px; font-size: 28px;
+      color: var(--gold); cursor: pointer; line-height: 1;
+    }
+
+    @media (max-width: 900px) {
+      .pair-row { grid-template-columns: 1fr; }
+      .top-bar { padding: 14px 20px; }
+      main { padding: 24px 20px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-wrap"><div id="progress-bar"></div></div>
+<div id="status-toast"></div>
+
+<div id="lightbox">
+  <span id="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <iframe id="lightbox-frame" src=""></iframe>
+</div>
+
+<div class="top-bar">
+  <div class="top-brand">
+    <div class="top-logo"><img src="images/logos/1_20260423_211737_0000.png" alt="Logo"></div>
+    <div class="top-title-group">
+      <h1>CASA DE RAFAEL</h1>
+      <p>Menu Board Gallery &nbsp;·&nbsp; Internal Draft Review</p>
+    </div>
+  </div>
+  <button class="btn-all-pdf" onclick="downloadAllPDF()" id="btn-all">⬇ Download All as PDF</button>
+</div>
+
+<main>
+
+  <!-- FOOD TRAY -->
+  <div class="section-label">
+    <h2>Food Tray Menu</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="pair-row">
+    <div class="menu-card" data-file="Menu/casa_de_rafael_food_tray_menu.html" data-selector=".menu-board" data-name="Food Tray — Warm Brown">
+      <div class="card-preview" onclick="openLightbox('Menu/casa_de_rafael_food_tray_menu.html')">
+        <iframe src="Menu/casa_de_rafael_food_tray_menu.html" loading="lazy"></iframe>
+        <div class="preview-overlay"><span class="preview-eye">View Full</span></div>
+      </div>
+      <div class="card-info">
+        <span class="card-name">Food Tray Menu</span>
+        <span class="card-theme theme-warm">Warm Brown</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-png" onclick="downloadPNG(this)">PNG</button>
+        <button class="btn-pdf" onclick="downloadSinglePDF(this)">PDF</button>
+      </div>
+    </div>
+    <div class="menu-card" data-file="Menu/casa_de_rafael_food_tray_menu_alt.html" data-selector=".menu-board" data-name="Food Tray — Navy">
+      <div class="card-preview" onclick="openLightbox('Menu/casa_de_rafael_food_tray_menu_alt.html')">
+        <iframe src="Menu/casa_de_rafael_food_tray_menu_alt.html" loading="lazy"></iframe>
+        <div class="preview-overlay"><span class="preview-eye">View Full</span></div>
+      </div>
+      <div class="card-info">
+        <span class="card-name">Food Tray Menu</span>
+        <span class="card-theme theme-navy">Navy</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-png" onclick="downloadPNG(this)">PNG</button>
+        <button class="btn-pdf" onclick="downloadSinglePDF(this)">PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BENTO -->
+  <div class="section-label">
+    <h2>Bento &amp; Packed Meals</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="pair-row">
+    <div class="menu-card" data-file="Menu/casa_de_rafael_bento_menu.html" data-selector=".bento-board" data-name="Bento Menu — Warm Brown">
+      <div class="card-preview" onclick="openLightbox('Menu/casa_de_rafael_bento_menu.html')">
+        <iframe src="Menu/casa_de_rafael_bento_menu.html" loading="lazy"></iframe>
+        <div class="preview-overlay"><span class="preview-eye">View Full</span></div>
+      </div>
+      <div class="card-info">
+        <span class="card-name">Bento &amp; Packed Meals</span>
+        <span class="card-theme theme-warm">Warm Brown</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-png" onclick="downloadPNG(this)">PNG</button>
+        <button class="btn-pdf" onclick="downloadSinglePDF(this)">PDF</button>
+      </div>
+    </div>
+    <div class="menu-card" data-file="Menu/casa_de_rafael_bento_menu_alt.html" data-selector=".bento-board" data-name="Bento Menu — Navy">
+      <div class="card-preview" onclick="openLightbox('Menu/casa_de_rafael_bento_menu_alt.html')">
+        <iframe src="Menu/casa_de_rafael_bento_menu_alt.html" loading="lazy"></iframe>
+        <div class="preview-overlay"><span class="preview-eye">View Full</span></div>
+      </div>
+      <div class="card-info">
+        <span class="card-name">Bento &amp; Packed Meals</span>
+        <span class="card-theme theme-navy">Navy</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-png" onclick="downloadPNG(this)">PNG</button>
+        <button class="btn-pdf" onclick="downloadSinglePDF(this)">PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAMILY SET -->
+  <div class="section-label">
+    <h2>Family Set Menu</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="pair-row">
+    <div class="menu-card" data-file="Menu/casa_de_rafael_family_meal_menu.html" data-selector=".family-board" data-name="Family Set — Warm Brown">
+      <div class="card-preview" onclick="openLightbox('Menu/casa_de_rafael_family_meal_menu.html')">
+        <iframe src="Menu/casa_de_rafael_family_meal_menu.html" loading="lazy"></iframe>
+        <div class="preview-overlay"><span class="preview-eye">View Full</span></div>
+      </div>
+      <div class="card-info">
+        <span class="card-name">Family Set Menu</span>
+        <span class="card-theme theme-warm">Warm Brown</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-png" onclick="downloadPNG(this)">PNG</button>
+        <button class="btn-pdf" onclick="downloadSinglePDF(this)">PDF</button>
+      </div>
+    </div>
+    <div class="menu-card" data-file="Menu/casa_de_rafael_family_meal_menu_alt.html" data-selector=".family-board" data-name="Family Set — Navy">
+      <div class="card-preview" onclick="openLightbox('Menu/casa_de_rafael_family_meal_menu_alt.html')">
+        <iframe src="Menu/casa_de_rafael_family_meal_menu_alt.html" loading="lazy"></iframe>
+        <div class="preview-overlay"><span class="preview-eye">View Full</span></div>
+      </div>
+      <div class="card-info">
+        <span class="card-name">Family Set Menu</span>
+        <span class="card-theme theme-navy">Navy</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-png" onclick="downloadPNG(this)">PNG</button>
+        <button class="btn-pdf" onclick="downloadSinglePDF(this)">PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMBINED -->
+  <div class="section-label">
+    <h2>Complete Combined Menu</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="pair-row">
+    <div class="menu-card" data-file="Menu/casa_de_rafael_combined_menu.html" data-selector=".cmb" data-name="Combined Menu — Warm Brown">
+      <div class="card-preview" onclick="openLightbox('Menu/casa_de_rafael_combined_menu.html')">
+        <iframe src="Menu/casa_de_rafael_combined_menu.html" loading="lazy"></iframe>
+        <div class="preview-overlay"><span class="preview-eye">View Full</span></div>
+      </div>
+      <div class="card-info">
+        <span class="card-name">Complete Menu</span>
+        <span class="card-theme theme-warm">Warm Brown</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-png" onclick="downloadPNG(this)">PNG</button>
+        <button class="btn-pdf" onclick="downloadSinglePDF(this)">PDF</button>
+      </div>
+    </div>
+    <div class="menu-card" data-file="Menu/casa_de_rafael_combined_menu_alt.html" data-selector=".cmb" data-name="Combined Menu — Navy">
+      <div class="card-preview" onclick="openLightbox('Menu/casa_de_rafael_combined_menu_alt.html')">
+        <iframe src="Menu/casa_de_rafael_combined_menu_alt.html" loading="lazy"></iframe>
+        <div class="preview-overlay"><span class="preview-eye">View Full</span></div>
+      </div>
+      <div class="card-info">
+        <span class="card-name">Complete Menu</span>
+        <span class="card-theme theme-navy">Navy</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-png" onclick="downloadPNG(this)">PNG</button>
+        <button class="btn-pdf" onclick="downloadSinglePDF(this)">PDF</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  // Scale iframes to fit preview cards
+  function scaleIframes() {
+    document.querySelectorAll('.card-preview').forEach(wrap => {
+      const iframe = wrap.querySelector('iframe');
+      const scale = wrap.offsetWidth / 960;
+      iframe.style.transform = `scale(${scale})`;
+      iframe.style.height = (wrap.offsetHeight / scale) + 'px';
+    });
+  }
+  window.addEventListener('load', scaleIframes);
+  window.addEventListener('resize', scaleIframes);
+
+  // Lightbox
+  function openLightbox(src) {
+    document.getElementById('lightbox-frame').src = src;
+    document.getElementById('lightbox').classList.add('active');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.getElementById('lightbox-frame').src = '';
+  }
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+
+  // Toast
+  function toast(msg) {
+    const t = document.getElementById('status-toast');
+    t.textContent = msg; t.style.display = 'block';
+    clearTimeout(t._to);
+    t._to = setTimeout(() => { t.style.display = 'none'; }, 3000);
+  }
+
+  // Progress
+  function setProgress(pct) {
+    const wrap = document.getElementById('progress-wrap');
+    const bar = document.getElementById('progress-bar');
+    if (pct === 0) { wrap.style.display = 'block'; bar.style.width = '0%'; }
+    else if (pct >= 100) { bar.style.width = '100%'; setTimeout(() => { wrap.style.display = 'none'; }, 600); }
+    else { bar.style.width = pct + '%'; }
+  }
+
+  // Capture board from same-origin iframe
+  async function captureBoard(file, selector) {
+    return new Promise((resolve, reject) => {
+      const iframe = document.createElement('iframe');
+      iframe.style.cssText = 'position:fixed;left:-9999px;top:0;width:1100px;height:1px;border:none;visibility:hidden;';
+      iframe.src = file;
+      document.body.appendChild(iframe);
+      iframe.onload = async () => {
+        try {
+          const doc = iframe.contentDocument;
+          const board = doc.querySelector(selector);
+          if (!board) throw new Error('Board element not found: ' + selector);
+          // Expand iframe to fit content
+          iframe.style.height = board.scrollHeight + 100 + 'px';
+          await new Promise(r => setTimeout(r, 200)); // let layout settle
+          const canvas = await html2canvas(board, {
+            useCORS: true, scale: 2,
+            backgroundColor: null,
+            logging: false,
+            windowWidth: 1100,
+            scrollX: 0, scrollY: 0
+          });
+          document.body.removeChild(iframe);
+          resolve(canvas);
+        } catch(e) { document.body.removeChild(iframe); reject(e); }
+      };
+      iframe.onerror = () => { document.body.removeChild(iframe); reject(new Error('Failed to load ' + file)); };
+    });
+  }
+
+  // Download PNG
+  async function downloadPNG(btn) {
+    const card = btn.closest('.menu-card');
+    const file = card.dataset.file;
+    const selector = card.dataset.selector;
+    const name = card.dataset.name.replace(/\s+/g, '_');
+    setAllBtns(card, true);
+    toast('Rendering PNG…');
+    setProgress(30);
+    try {
+      const canvas = await captureBoard(file, selector);
+      setProgress(80);
+      const link = document.createElement('a');
+      link.download = name + '.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+      setProgress(100);
+      toast('PNG downloaded ✓');
+    } catch(e) { toast('Error: ' + e.message); setProgress(100); }
+    setAllBtns(card, false);
+  }
+
+  // Download single PDF
+  async function downloadSinglePDF(btn) {
+    const card = btn.closest('.menu-card');
+    const file = card.dataset.file;
+    const selector = card.dataset.selector;
+    const name = card.dataset.name.replace(/\s+/g, '_');
+    setAllBtns(card, true);
+    toast('Rendering PDF…');
+    setProgress(30);
+    try {
+      const canvas = await captureBoard(file, selector);
+      setProgress(70);
+      const { jsPDF } = window.jspdf;
+      const w = canvas.width / 2; // divide by scale factor
+      const h = canvas.height / 2;
+      const pdf = new jsPDF({
+        orientation: w > h ? 'landscape' : 'portrait',
+        unit: 'px', hotfixes: ['px_scaling'],
+        format: [w, h]
+      });
+      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, w, h);
+      pdf.save(name + '.pdf');
+      setProgress(100);
+      toast('PDF downloaded ✓');
+    } catch(e) { toast('Error: ' + e.message); setProgress(100); }
+    setAllBtns(card, false);
+  }
+
+  // Download ALL as single PDF
+  async function downloadAllPDF() {
+    const allCards = document.querySelectorAll('.menu-card');
+    const btn = document.getElementById('btn-all');
+    btn.disabled = true; btn.textContent = '⏳ Generating…';
+    const { jsPDF } = window.jspdf;
+    let pdf = null;
+    const total = allCards.length;
+    setProgress(0);
+    for (let i = 0; i < total; i++) {
+      const card = allCards[i];
+      toast(`Rendering ${i + 1} of ${total}: ${card.dataset.name}…`);
+      setProgress(Math.round((i / total) * 90));
+      try {
+        const canvas = await captureBoard(card.dataset.file, card.dataset.selector);
+        const w = canvas.width / 2;
+        const h = canvas.height / 2;
+        const orient = w > h ? 'landscape' : 'portrait';
+        if (!pdf) {
+          pdf = new jsPDF({ orientation: orient, unit: 'px', hotfixes: ['px_scaling'], format: [w, h] });
+        } else {
+          pdf.addPage([w, h], orient);
+        }
+        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, w, h);
+      } catch(e) { console.warn('Skipped', card.dataset.name, e.message); }
+    }
+    if (pdf) { pdf.save('Casa_De_Rafael_Complete_Menu.pdf'); }
+    setProgress(100);
+    toast('All menus downloaded as PDF ✓');
+    btn.disabled = false; btn.textContent = '⬇ Download All as PDF';
+  }
+
+  function setAllBtns(card, disabled) {
+    card.querySelectorAll('button').forEach(b => b.disabled = disabled);
+  }
+</script>
+</body>
+</html>

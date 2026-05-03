@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa De Rafael — Family Set Menu (Navy)</title>
+  <meta name="description" content="Casa De Rafael Manila Family Set Menu — Navy Edition. 5 Medium Trays + FREE Dessert. Est. 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: transparent; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 20px; }
+
+    .family-board {
+      background: #283a48;
+      font-family: 'Lato', sans-serif;
+      color: #f5f3e6;
+      width: 100%; max-width: 960px;
+      border-radius: 8px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(197,160,89,0.15);
+    }
+
+    /* Header */
+    .bh {
+      background: #1c2a35; padding: 18px 32px 14px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 2px solid #c5a059;
+    }
+    .blc {
+      width: 72px; height: 72px; border-radius: 50%;
+      border: 2px solid #c5a059; overflow: hidden;
+      background: #131e27; flex-shrink: 0; transition: box-shadow 0.3s;
+    }
+    .blc:hover { box-shadow: 0 0 16px rgba(197,160,89,0.4); }
+    .blc img { width: 100%; height: 100%; object-fit: cover; }
+    .bbc { text-align: center; flex: 1; }
+    .bbn { font-family: 'Playfair Display', serif; font-size: 22px; color: #c5a059; letter-spacing: 3px; font-weight: 700; }
+    .bbc-city { font-family: 'Playfair Display', serif; font-size: 15px; color: #c5a059; letter-spacing: 2px; }
+    .bbs { font-size: 10px; color: #9a8a5a; letter-spacing: 4px; text-transform: uppercase; margin-top: 3px; }
+    .serves-badge { width: 72px; text-align: right; flex-shrink: 0; }
+    .serves-badge div { font-size: 9px; color: #9a8a5a; letter-spacing: 1px; line-height: 1.7; }
+
+    /* Title Band */
+    .btb {
+      background: linear-gradient(90deg, #9a8a5a, #c5a059, #dbb96a, #c5a059, #9a8a5a);
+      text-align: center; padding: 8px;
+    }
+    .btb span { font-family: 'Playfair Display', serif; color: #1c2a35; font-size: 14px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; }
+
+    /* Content */
+    .bc { padding: 24px 28px 28px; }
+    .bnote { text-align: center; font-size: 11px; color: #9a8a5a; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
+
+    /* Package Card */
+    .pkg-card {
+      background: #1e3040;
+      border: 2px solid #c5a059;
+      border-radius: 8px;
+      padding: 28px 32px;
+      text-align: center;
+      position: relative;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .pkg-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #9a8a5a, #dbb96a, #9a8a5a);
+    }
+
+    .pkg-badge {
+      display: inline-block;
+      background: #c5a059;
+      color: #1c2a35;
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      padding: 4px 18px; border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .pkg-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; color: #c5a059;
+      font-weight: 700; margin-bottom: 4px;
+    }
+
+    .pkg-subtitle {
+      font-size: 11px; color: #9a8a5a;
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .pkg-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px; color: #c5a059;
+      font-weight: 700; line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pkg-price span { font-size: 14px; color: #9a8a5a; font-weight: 400; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(197,160,89,0.3);
+      margin: 20px 0;
+    }
+
+    /* Includes Grid */
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .inc-item {
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(197,160,89,0.25);
+      border-radius: 6px;
+      padding: 12px 8px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .inc-item:hover { background: rgba(197,160,89,0.08); }
+
+    .inc-icon { font-size: 22px; margin-bottom: 6px; }
+
+    .inc-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 10px; color: #c5a059;
+      font-weight: 700; letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    .inc-note {
+      font-size: 8px; color: #9a8a5a;
+      letter-spacing: 0.5px; font-style: italic;
+    }
+
+    /* Free Tag */
+    .free-tag {
+      display: inline-block;
+      background: linear-gradient(90deg, #9a8a5a, #dbb96a, #9a8a5a);
+      color: #1c2a35;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 8px 24px; border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .beef-note {
+      font-size: 10px; color: #9a8a5a;
+      font-style: italic; letter-spacing: 0.5px;
+    }
+
+    /* Add-Ons */
+    .ao-band {
+      background: #1e3040; border: 1px solid #c5a059; border-radius: 4px;
+      padding: 14px 18px;
+    }
+    .ao-title { font-family: 'Playfair Display', serif; font-size: 11px; color: #c5a059; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+    .ao-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px 16px; }
+    .ao-item { font-size: 10px; color: #f5f3e6; display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 0.5px solid rgba(197,160,89,0.15); }
+    .ao-price { color: #c5a059; font-weight: 700; }
+
+    /* Footer */
+    .bfooter {
+      background: #1c2a35; border-top: 2px solid #c5a059;
+      padding: 10px 28px; display: flex; justify-content: space-between; align-items: center;
+    }
+    .bft { font-size: 10px; color: #9a8a5a; letter-spacing: 1px; }
+
+    @media print { body { background: white; padding: 0; } .family-board { box-shadow: none; border-radius: 0; max-width: 100%; } }
+    @media (max-width: 700px) {
+      .includes-grid { grid-template-columns: repeat(3, 1fr); }
+      .ao-grid { grid-template-columns: 1fr 1fr; }
+      .bh { flex-direction: column; gap: 10px; }
+      body { padding: 8px; }
+    }
+    @media (max-width: 480px) {
+      .includes-grid { grid-template-columns: 1fr 1fr; }
+      .pkg-card { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="family-board" id="family-meal-menu-alt">
+  <div class="bh">
+    <div class="blc"><img src="../images/logos/2_20260423_211919_0001.png" alt="Casa De Rafael Logo"></div>
+    <div class="bbc">
+      <div class="bbn">CASA DE RAFAEL</div>
+      <div class="bbc-city">Manila</div>
+      <div class="bbs">est. 2026 · Food Trays &amp; Packed Meals</div>
+    </div>
+    <div class="serves-badge">
+      <div>Med · 10–12 pax</div>
+      <div>per tray</div>
+    </div>
+  </div>
+  <div class="btb"><span>Family Set Menu</span></div>
+  <div class="bc">
+    <div class="bnote">The ultimate family feast · All prices in Philippine Peso (₱)</div>
+
+    <div class="pkg-card">
+      <div class="pkg-badge">✦ Best Value ✦</div>
+      <div class="pkg-title">Family Set Package</div>
+      <div class="pkg-subtitle">5 Medium Trays + FREE Dessert</div>
+      <div class="pkg-price">₱5,599 <span>/ set</span></div>
+
+      <hr class="divider">
+
+      <div class="includes-grid">
+        <div class="inc-item">
+          <div class="inc-icon">🐖</div>
+          <div class="inc-label">1 Pork Tray</div>
+          <div class="inc-note">any pork dish</div>
+        </div>
+        <div class="inc-item">
+          <div class="inc-icon">🍗</div>
+          <div class="inc-label">1 Chicken Tray</div>
+          <div class="inc-note">any chicken dish</div>
+        </div>
+        <div class="inc-item">
+          <div class="inc-icon">🍝</div>
+          <div class="inc-label">1 Pasta Tray</div>
+          <div class="inc-note">Pancit or Pasta</div>
+        </div>
+        <div class="inc-item">
+          <div class="inc-icon">🐟</div>
+          <div class="inc-label">1 Fish Tray</div>
+          <div class="inc-note">any fish dish</div>
+        </div>
+        <div class="inc-item">
+          <div class="inc-icon">🥬</div>
+          <div class="inc-label">1 Veggie Tray</div>
+          <div class="inc-note">any veggie dish</div>
+        </div>
+      </div>
+
+      <div class="free-tag">🎁 FREE Buko Pandan w/ Sago</div>
+      <br>
+      <div class="beef-note">Want beef? Order a beef tray separately — pairs perfectly with the set!</div>
+    </div>
+
+    <div class="ao-band">
+      <div class="ao-title">Add to Your Family Set</div>
+      <div class="ao-grid">
+        <div class="ao-item"><span>Plain Rice Tray (Med)</span><span class="ao-price">₱499</span></div>
+        <div class="ao-item"><span>Garlic Rice Tray (Med)</span><span class="ao-price">₱799</span></div>
+        <div class="ao-item"><span>Extra Beef Caldereta (Med)</span><span class="ao-price">₱1,699</span></div>
+        <div class="ao-item"><span>Extra Beef Caldereta (Lrg)</span><span class="ao-price">₱3,099</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="bfooter">
+    <div class="bft">Casa De Rafael MNL · Food Trays &amp; Packed Meals · est. 2026</div>
+    <div class="bft" style="text-align:right;">fb.com/casaderafaelmanila</div>
+  </div>
+</div>
+</body>
+</html>

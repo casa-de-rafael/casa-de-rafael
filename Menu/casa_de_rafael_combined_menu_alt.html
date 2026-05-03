@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa De Rafael — Complete Menu (Navy)</title>
+  <meta name="description"
+    content="Casa De Rafael Manila Complete Menu — Navy Edition. Food Trays & Bento Packed Meals.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .cmb {
+      background: #283a48;
+      font-family: 'Lato', sans-serif;
+      color: #f5f3e6;
+      width: 100%;
+      max-width: 1060px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(197, 160, 89, 0.15);
+    }
+
+    .ch {
+      background: #1c2a35;
+      padding: 16px 28px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #c5a059;
+    }
+
+    .clc {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid #c5a059;
+      overflow: hidden;
+      background: #131e27;
+      flex-shrink: 0;
+      transition: box-shadow 0.3s;
+    }
+
+    .clc:hover {
+      box-shadow: 0 0 16px rgba(197, 160, 89, 0.4);
+    }
+
+    .clc img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cbc {
+      text-align: center;
+      flex: 1;
+    }
+
+    .cbn {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: #c5a059;
+      letter-spacing: 3px;
+      font-weight: 700;
+    }
+
+    .cbc-sub {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      color: #c5a059;
+      letter-spacing: 2px;
+    }
+
+    .cbs {
+      font-size: 9px;
+      color: #9a8a5a;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .serves-r {
+      width: 64px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .serves-r div {
+      font-size: 8px;
+      color: #9a8a5a;
+      letter-spacing: 1px;
+      line-height: 1.6;
+    }
+
+    .div-band {
+      background: linear-gradient(90deg, #9a8a5a, #c5a059, #dbb96a, #c5a059, #9a8a5a);
+      text-align: center;
+      padding: 6px;
+    }
+
+    .div-band span {
+      font-family: 'Playfair Display', serif;
+      color: #1c2a35;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .cc {
+      padding: 16px 24px 20px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .col-head {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      color: #c5a059;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #c5a059;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0 14px;
+    }
+
+    .sh {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+      margin-top: 10px;
+    }
+
+    .sd {
+      width: 5px;
+      height: 5px;
+      background: #c5a059;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .st {
+      font-size: 11px;
+      color: #c5a059;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .sr {
+      display: grid;
+      grid-template-columns: 1fr 46px 46px;
+      font-size: 8px;
+      color: #9a8a5a;
+      letter-spacing: 1px;
+      padding: 0 0 3px;
+      text-align: right;
+    }
+
+    .sr span:first-child {
+      text-align: left;
+    }
+
+    .ir {
+      display: grid;
+      grid-template-columns: 1fr 46px 46px;
+      font-size: 10px;
+      color: #f5f3e6;
+      padding: 2.5px 0;
+      border-bottom: 0.5px solid rgba(197, 160, 89, 0.2);
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    .ir:hover {
+      background: rgba(197, 160, 89, 0.06);
+    }
+
+    .ir span:last-child,
+    .ir span:nth-child(2) {
+      text-align: right;
+      color: #c5a059;
+      font-weight: 700;
+      font-size: 10px;
+    }
+
+    .bg4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .bg3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .bcard {
+      background: #1e3040;
+      border: 1px solid #c5a059;
+      border-radius: 5px;
+      padding: 10px 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .bcard:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(197, 160, 89, 0.15);
+    }
+
+    .bcard.featured {
+      border-color: #dbb96a;
+      background: #2a4458;
+    }
+
+    .blabel {
+      font-size: 8px;
+      color: #9a8a5a;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .btitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 11px;
+      color: #c5a059;
+      font-weight: 700;
+      margin: 2px 0 4px;
+      border-bottom: 0.5px solid rgba(197, 160, 89, 0.3);
+      padding-bottom: 4px;
+    }
+
+    .bprice {
+      font-size: 16px;
+      color: #c5a059;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .bprice span {
+      font-size: 9px;
+      color: #9a8a5a;
+      font-weight: 400;
+    }
+
+    .bitems {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 0;
+    }
+
+    .bitems li {
+      font-size: 9px;
+      color: #f5f3e6;
+      padding: 1.5px 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .bitems li::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #c5a059;
+      flex-shrink: 0;
+    }
+
+    .ao {
+      background: #1e3040;
+      border: 1px solid #c5a059;
+      border-radius: 4px;
+      padding: 8px 12px;
+      margin-top: 10px;
+    }
+
+    .aot {
+      font-family: 'Playfair Display', serif;
+      font-size: 10px;
+      color: #c5a059;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .aog {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3px 16px;
+    }
+
+    .aoi {
+      font-size: 9px;
+      color: #f5f3e6;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .aop {
+      color: #c5a059;
+      font-weight: 700;
+    }
+
+    .cf {
+      background: #1c2a35;
+      border-top: 2px solid #c5a059;
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cft {
+      font-size: 9px;
+      color: #9a8a5a;
+      letter-spacing: 1px;
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .cmb {
+        box-shadow: none;
+        border-radius: 0;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .three-col {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .ch {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .serves-r {
+        text-align: center;
+        width: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .three-col {
+        grid-template-columns: 1fr;
+      }
+
+      .bg4,
+      .bg3 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      body {
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cmb" id="combined-menu-alt">
+    <div class="ch">
+      <div class="clc"><img src="../images/logos/2_20260423_211919_0001.png" alt="Casa De Rafael Logo"></div>
+      <div class="cbc">
+        <div class="cbn">CASA DE RAFAEL MANILA</div>
+        <div class="cbc-sub">Food Trays &amp; Packed Meals</div>
+        <div class="cbs">est. 2026 · For orders &amp; inquiries, contact us</div>
+      </div>
+      <div class="serves-r">
+        <div>Med 10–12 pax</div>
+        <div>Lrg 15–20 pax</div>
+      </div>
+    </div>
+    <div class="div-band"><span>Complete Menu</span></div>
+    <div class="cc">
+      <div class="two-col">
+        <!-- LEFT: Food Trays -->
+        <div>
+          <div class="col-head">— Food Tray Menu —</div>
+          <div class="three-col">
+            <div>
+              <div class="sh">
+                <div class="sd"></div>
+                <div class="st">Chicken</div>
+              </div>
+              <div class="sr"><span></span><span>Med</span><span>Lrg</span></div>
+              <div class="ir"><span>Fried Chicken</span><span>1,299</span><span>2,598</span></div>
+              <div class="ir"><span>Salpicao</span><span>1,299</span><span>2,598</span></div>
+              <div class="ir"><span>Adobo w/ Egg</span><span>1,299</span><span>2,598</span></div>
+              <div class="ir"><span>BBQ Chicken ★</span><span>1,399</span><span>2,798</span></div>
+              <div class="ir"><span>Cordon Bleu</span><span>1,399</span><span>2,998</span></div>
+              <div class="ir"><span>Chicken Wings</span><span>1,399</span><span>2,798</span></div>
+              <div class="ir"><span>Inasal</span><span>1,599</span><span>2,698</span></div>
+              <div class="sh">
+                <div class="sd"></div>
+                <div class="st">Pasta/Pancit</div>
+              </div>
+              <div class="sr"><span></span><span>Med</span><span>Lrg</span></div>
+              <div class="ir"><span>Bihon</span><span>1,099</span><span>2,198</span></div>
+              <div class="ir"><span>Spaghetti</span><span>1,099</span><span>2,198</span></div>
+              <div class="ir"><span>Baked Mac</span><span>1,099</span><span>2,198</span></div>
+              <div class="ir"><span>Carbonara</span><span>1,099</span><span>2,198</span></div>
+              <div class="ir"><span>Pancit Canton</span><span>1,099</span><span>2,198</span></div>
+              <div class="sh">
+                <div class="sd"></div>
+                <div class="st">Rice</div>
+              </div>
+              <div class="sr"><span></span><span>Med</span><span>Lrg</span></div>
+              <div class="ir"><span>Plain Rice</span><span>499</span><span>998</span></div>
+              <div class="ir"><span>Garlic Rice</span><span>799</span><span>1,598</span></div>
+            </div>
+            <div>
+              <div class="sh">
+                <div class="sd"></div>
+                <div class="st">Pork</div>
+              </div>
+              <div class="sr"><span></span><span>Med</span><span>Lrg</span></div>
+              <div class="ir"><span>Sisig ★</span><span>1,299</span><span>2,598</span></div>
+              <div class="ir"><span>Lumpia Shanghai</span><span>1,299</span><span>2,598</span></div>
+              <div class="ir"><span>Sweet &amp; Sour</span><span>1,299</span><span>2,598</span></div>
+              <div class="ir"><span>Adobo w/ Egg</span><span>1,299</span><span>2,598</span></div>
+              <div class="ir"><span>Breaded Porkchop</span><span>1,299</span><span>2,598</span></div>
+              <div class="ir"><span>Pork Steak</span><span>1,299</span><span>2,598</span></div>
+              <div class="ir"><span>Menudo</span><span>1,299</span><span>2,598</span></div>
+              <div class="ir"><span>Lechon Kawali</span><span>1,399</span><span>2,798</span></div>
+              <div class="ir"><span>Lechon Paksiw</span><span>1,399</span><span>2,798</span></div>
+              <div class="ir"><span>Kare-Kare Lechon</span><span>1,499</span><span>2,898</span></div>
+              <div class="sh">
+                <div class="sd"></div>
+                <div class="st">Vegetables</div>
+              </div>
+              <div class="sr"><span></span><span>Med</span><span>Lrg</span></div>
+              <div class="ir"><span>Pinakbet</span><span>1,099</span><span>2,198</span></div>
+              <div class="ir"><span>Chopsuey</span><span>1,099</span><span>2,198</span></div>
+              <div class="ir"><span>Adobong Sitaw</span><span>1,099</span><span>2,198</span></div>
+            </div>
+            <div>
+              <div class="sh">
+                <div class="sd"></div>
+                <div class="st">Beef</div>
+              </div>
+              <div class="sr"><span></span><span>Med</span><span>Lrg</span></div>
+              <div class="ir"><span>Bistek Tagalog</span><span>1,399</span><span>2,498</span></div>
+              <div class="ir"><span>Beef w/ Mushroom</span><span>1,399</span><span>2,798</span></div>
+              <div class="ir"><span>Beef Stroganoff</span><span>1,399</span><span>2,798</span></div>
+              <div class="ir"><span>Beef Salpicao</span><span>1,399</span><span>2,798</span></div>
+              <div class="ir"><span>Beef Caldereta ★</span><span>1,699</span><span>3,099</span></div>
+              <div class="sh">
+                <div class="sd"></div>
+                <div class="st">Fish</div>
+              </div>
+              <div class="sr"><span></span><span>Med</span><span>Lrg</span></div>
+              <div class="ir"><span>Breaded Fillet</span><span>1,299</span><span>2,598</span></div>
+              <div class="ir"><span>Sweet &amp; Sour Fish</span><span>1,299</span><span>2,598</span></div>
+              <div class="ir"><span>Cheesy Bangus</span><span>1,299</span><span>2,598</span></div>
+              <div class="ir"><span>Crispy Tawilis ★</span><span>1,299</span><span>2,598</span></div>
+              <div class="ir"><span>Tempura ★</span><span>1,599</span><span>2,898</span></div>
+              <div class="sh">
+                <div class="sd"></div>
+                <div class="st">Dessert</div>
+              </div>
+              <div class="sr"><span></span><span>Med</span><span>Lrg</span></div>
+              <div class="ir"><span>Mango w/ Sago</span><span>499</span><span>998</span></div>
+              <div class="ir"><span>Buko Pandan</span><span>499</span><span>998</span></div>
+              <div class="ir"><span>Coffee Jelly</span><span>499</span><span>998</span></div>
+              <div class="ir"><span>Leche Flan</span><span>499</span><span>998</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- RIGHT: Bento -->
+        <div>
+          <div class="col-head">— Bento &amp; Packed Meals —</div>
+          <div style="font-size:9px;color:#9a8a5a;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">
+            Min. 30 pcs per viand · Price per pack</div>
+          <div class="bg4">
+            <div class="bcard">
+              <div class="blabel">2-Grid</div>
+              <div class="btitle">Rice + Viand</div>
+              <div class="bprice">₱119 <span>/pack</span></div>
+              <ul class="bitems">
+                <li>Steamed Rice</li>
+                <li>Pork / Chicken</li>
+              </ul>
+            </div>
+            <div class="bcard">
+              <div class="blabel">2-Grid</div>
+              <div class="btitle">Pasta + Viand</div>
+              <div class="bprice">₱149 <span>/pack</span></div>
+              <ul class="bitems">
+                <li>Pasta / Pancit</li>
+                <li>Pork / Chicken</li>
+              </ul>
+            </div>
+            <div class="bcard">
+              <div class="blabel">3-Grid</div>
+              <div class="btitle">Pork + Pasta</div>
+              <div class="bprice">₱179 <span>/pack</span></div>
+              <ul class="bitems">
+                <li>Rice</li>
+                <li>Pork</li>
+                <li>Pasta</li>
+              </ul>
+            </div>
+            <div class="bcard featured">
+              <div class="blabel">3-Grid</div>
+              <div class="btitle">Pork + Chicken</div>
+              <div class="bprice">₱219 <span>/pack</span></div>
+              <ul class="bitems">
+                <li>Rice</li>
+                <li>Pork</li>
+                <li>Chicken</li>
+              </ul>
+            </div>
+          </div>
+          <div class="bg3">
+            <div class="bcard">
+              <div class="blabel">3-Grid</div>
+              <div class="btitle">Pork + Veggies</div>
+              <div class="bprice">₱149 <span>/pack</span></div>
+              <ul class="bitems">
+                <li>Rice</li>
+                <li>Pork Viand</li>
+                <li>Mixed Veggies</li>
+              </ul>
+            </div>
+            <div class="bcard">
+              <div class="blabel">3-Grid</div>
+              <div class="btitle">Pork + Fruit</div>
+              <div class="bprice">₱135 <span>/pack</span></div>
+              <ul class="bitems">
+                <li>Rice</li>
+                <li>Pork Viand</li>
+                <li>Fresh Banana</li>
+              </ul>
+            </div>
+            <div class="bcard">
+              <div class="blabel">3-Grid</div>
+              <div class="btitle">Chicken + Veggies</div>
+              <div class="bprice">₱129 <span>/pack</span></div>
+              <ul class="bitems">
+                <li>Rice</li>
+                <li>Chicken</li>
+                <li>Mixed Veggies</li>
+              </ul>
+            </div>
+          </div>
+          <div class="bg3">
+            <div class="bcard">
+              <div class="blabel">3-Grid</div>
+              <div class="btitle">Chicken + Fruit</div>
+              <div class="bprice">₱125 <span>/pack</span></div>
+              <ul class="bitems">
+                <li>Rice</li>
+                <li>Chicken</li>
+                <li>Fruit / Dessert</li>
+              </ul>
+            </div>
+            <div class="bcard featured">
+              <div class="blabel">4-Grid</div>
+              <div class="btitle">Full Combo</div>
+              <div class="bprice">₱259 <span>/pack</span></div>
+              <ul class="bitems">
+                <li>Rice</li>
+                <li>Pork</li>
+                <li>Chicken</li>
+                <li>Pasta</li>
+              </ul>
+            </div>
+            <div class="bcard" style="border:none;background:transparent;"></div>
+          </div>
+          <div class="ao">
+            <div class="aot">Add-Ons</div>
+            <div class="aog">
+              <div class="aoi"><span>Dessert / Fruit</span><span class="aop">+₱15</span></div>
+              <div class="aoi"><span>Water (325ml)</span><span class="aop">+₱15</span></div>
+              <div class="aoi"><span>Water (500ml)</span><span class="aop">+₱25</span></div>
+              <div class="aoi"><span>Beef Upgrade</span><span class="aop">+₱100</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cf">
+      <div class="cft">Casa De Rafael MNL · Food Trays &amp; Packed Meals · est. 2026</div>
+      <div class="cft" style="text-align:right;">fb.com/casaderafaelmanila</div>
+    </div>
+  </div>
+</body>
+
+</html>

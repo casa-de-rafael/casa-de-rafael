@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa De Rafael — Bento &amp; Packed Meals Menu</title>
+  <meta name="description" content="Casa De Rafael Manila Bento & Packed Meals Menu — 2-Grid, 3-Grid, 4-Grid options. Min 30 pcs per viand. Est. 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: transparent; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 20px; }
+
+    .bento-board {
+      background: #7B3A1E;
+      font-family: 'Lato', sans-serif;
+      color: #F5DFA0;
+      width: 100%; max-width: 960px;
+      border-radius: 8px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,168,67,0.15);
+    }
+
+    /* Header */
+    .bh {
+      background: #5A2610; padding: 18px 32px 14px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 2px solid #D4A843;
+    }
+    .blc {
+      width: 72px; height: 72px; border-radius: 50%;
+      border: 2px solid #D4A843; overflow: hidden;
+      background: #3D1A0A; flex-shrink: 0; transition: box-shadow 0.3s;
+    }
+    .blc:hover { box-shadow: 0 0 16px rgba(212,168,67,0.4); }
+    .blc img { width: 100%; height: 100%; object-fit: cover; }
+    .bbc { text-align: center; flex: 1; }
+    .bbn { font-family: 'Playfair Display', serif; font-size: 22px; color: #D4A843; letter-spacing: 3px; font-weight: 700; }
+    .bbc-city { font-family: 'Playfair Display', serif; font-size: 15px; color: #D4A843; letter-spacing: 2px; }
+    .bbs { font-size: 10px; color: #C49A30; letter-spacing: 4px; text-transform: uppercase; margin-top: 3px; }
+
+    /* Title Band */
+    .btb {
+      background: linear-gradient(90deg, #C49A30, #D4A843, #E8C060, #D4A843, #C49A30);
+      text-align: center; padding: 8px;
+    }
+    .btb span { font-family: 'Playfair Display', serif; color: #5A2610; font-size: 14px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; }
+
+    /* Content */
+    .bc { padding: 20px 28px 24px; }
+    .bnote { text-align: center; font-size: 11px; color: #C49A30; letter-spacing: 2px; margin-bottom: 18px; text-transform: uppercase; }
+    .moq { font-size: 10px; color: #C49A30; text-align: center; margin-bottom: 12px; letter-spacing: 1px; }
+
+    /* Bento Grid — Row 1: 4 cards */
+    .bento-row1 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 14px; }
+    /* Bento Grid — Row 2: 5 cards */
+    .bento-row2 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 18px; }
+
+    .bento-card {
+      background: #5A2610; border: 1px solid #D4A843; border-radius: 6px;
+      padding: 12px 10px; display: flex; flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .bento-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(212,168,67,0.2);
+    }
+    .bento-card.featured {
+      border-color: #E8C060; background: #6B2E15;
+    }
+    .bc-label { font-size: 9px; color: #C49A30; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+    .bc-title {
+      font-family: 'Playfair Display', serif; font-size: 13px; color: #D4A843;
+      font-weight: 700; margin-bottom: 8px;
+      border-bottom: 0.5px solid rgba(212,168,67,0.4); padding-bottom: 6px;
+    }
+    .bc-price { font-family: 'Playfair Display', serif; font-size: 20px; color: #D4A843; font-weight: 700; margin-bottom: 8px; }
+    .bc-price span { font-size: 11px; font-weight: 400; color: #C49A30; }
+    .bc-items { list-style: none; padding: 0; margin: 0; flex: 1; }
+    .bc-items li {
+      font-size: 10px; color: #F5DFA0; padding: 2px 0;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .bc-items li::before {
+      content: ''; display: inline-block; width: 4px; height: 4px;
+      border-radius: 50%; background: #D4A843; flex-shrink: 0;
+    }
+
+    /* Add-Ons */
+    .ao-band {
+      background: #5A2610; border: 1px solid #D4A843; border-radius: 4px;
+      padding: 10px 14px;
+    }
+    .ao-title { font-family: 'Playfair Display', serif; font-size: 11px; color: #D4A843; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    .ao-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px 20px; }
+    .ao-item { font-size: 10px; color: #F5DFA0; display: flex; justify-content: space-between; }
+    .ao-price { color: #D4A843; font-weight: 700; }
+
+    /* Footer */
+    .bfooter {
+      background: #5A2610; border-top: 2px solid #D4A843;
+      padding: 10px 28px; display: flex; justify-content: space-between; align-items: center;
+    }
+    .bft { font-size: 10px; color: #C49A30; letter-spacing: 1px; }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .bento-board { box-shadow: none; border-radius: 0; max-width: 100%; }
+    }
+    @media (max-width: 700px) {
+      .bento-row1, .bento-row2 { grid-template-columns: 1fr 1fr; }
+      .bh { flex-direction: column; gap: 10px; }
+      body { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+<div class="bento-board" id="bento-menu">
+  <div class="bh">
+    <div class="blc"><img src="../images/logos/1_20260423_211737_0000.png" alt="Casa De Rafael Logo"></div>
+    <div class="bbc">
+      <div class="bbn">CASA DE RAFAEL</div>
+      <div class="bbc-city">Manila</div>
+      <div class="bbs">est. 2026 · Food Trays &amp; Packed Meals</div>
+    </div>
+    <div style="width:72px;"></div>
+  </div>
+  <div class="btb"><span>Bento &amp; Packed Meals Menu</span></div>
+  <div class="bc">
+    <div class="bnote">Mix &amp; match your bento · Minimum 30 pcs per viand</div>
+    <div class="moq">Choose your grid size · All prices per pack</div>
+
+    <!-- Row 1: 2-Grid + 3-Grid premium options -->
+    <div class="bento-row1">
+      <div class="bento-card">
+        <div class="bc-label">2-Grid Bento</div>
+        <div class="bc-title">Rice + Viand</div>
+        <div class="bc-price">₱119 <span>/pack</span></div>
+        <ul class="bc-items">
+          <li>Steamed Rice</li>
+          <li>Pork or Chicken</li>
+        </ul>
+      </div>
+      <div class="bento-card">
+        <div class="bc-label">2-Grid Bento</div>
+        <div class="bc-title">Pasta + Viand</div>
+        <div class="bc-price">₱149 <span>/pack</span></div>
+        <ul class="bc-items">
+          <li>Pasta / Pancit</li>
+          <li>Pork or Chicken</li>
+        </ul>
+      </div>
+      <div class="bento-card">
+        <div class="bc-label">3-Grid Bento</div>
+        <div class="bc-title">Pork + Pasta</div>
+        <div class="bc-price">₱179 <span>/pack</span></div>
+        <ul class="bc-items">
+          <li>Steamed Rice</li>
+          <li>Pork Viand</li>
+          <li>Pasta / Pancit</li>
+        </ul>
+      </div>
+      <div class="bento-card featured">
+        <div class="bc-label">3-Grid Bento</div>
+        <div class="bc-title">Pork + Chicken</div>
+        <div class="bc-price">₱219 <span>/pack</span></div>
+        <ul class="bc-items">
+          <li>Steamed Rice</li>
+          <li>Pork Viand</li>
+          <li>Chicken Viand</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Row 2: Value 3-Grid + 4-Grid -->
+    <div class="bento-row2">
+      <div class="bento-card"><div class="bc-label">3-Grid Bento</div><div class="bc-title">Chicken + Fruit</div><div class="bc-price">₱125 <span>/pack</span></div><ul class="bc-items"><li>Steamed Rice</li><li>Chicken Viand</li><li>Fruit / Dessert</li></ul></div>
+      <div class="bento-card"><div class="bc-label">3-Grid Bento</div><div class="bc-title">Chicken + Veggies</div><div class="bc-price">₱129 <span>/pack</span></div><ul class="bc-items"><li>Steamed Rice</li><li>Chicken Viand</li><li>Mixed Vegetables</li></ul></div>
+      <div class="bento-card"><div class="bc-label">3-Grid Bento</div><div class="bc-title">Pork + Fruit</div><div class="bc-price">₱135 <span>/pack</span></div><ul class="bc-items"><li>Steamed Rice</li><li>Pork Viand</li><li>Fresh Banana</li></ul></div>
+      <div class="bento-card"><div class="bc-label">3-Grid Bento</div><div class="bc-title">Pork + Veggies</div><div class="bc-price">₱149 <span>/pack</span></div><ul class="bc-items"><li>Steamed Rice</li><li>Pork Viand</li><li>Mixed Vegetables</li></ul></div>
+      <div class="bento-card featured"><div class="bc-label">4-Grid Bento</div><div class="bc-title">Full Combo</div><div class="bc-price">₱259 <span>/pack</span></div><ul class="bc-items"><li>Steamed Rice</li><li>Pork Viand</li><li>Chicken Viand</li><li>Pasta / Pancit</li></ul></div>
+    </div>
+
+    <div class="ao-band">
+      <div class="ao-title">Add-Ons Available</div>
+      <div class="ao-grid">
+        <div class="ao-item"><span>Dessert / Fruit</span><span class="ao-price">+₱15/pack</span></div>
+        <div class="ao-item"><span>Bottled Water (325ml)</span><span class="ao-price">+₱15/pc</span></div>
+        <div class="ao-item"><span>Bottled Water (500ml)</span><span class="ao-price">+₱25/pc</span></div>
+        <div class="ao-item"><span>Beef Upgrade</span><span class="ao-price">+₱100/pack</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="bfooter">
+    <div class="bft">Casa De Rafael MNL · Food Trays &amp; Packed Meals · est. 2026</div>
+    <div class="bft" style="text-align:right;">fb.com/casaderafaelmanila</div>
+  </div>
+</div>
+</body>
+</html>
