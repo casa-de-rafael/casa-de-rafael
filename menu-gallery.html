@@ -46,15 +46,19 @@
       font-size: 18px; color: var(--gold); letter-spacing: 2px;
     }
     .top-title-group p { font-size: 10px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+    .top-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
     .btn-all-pdf {
       background: linear-gradient(135deg, #c5a059, #dbb96a);
-      color: #0d0d1a; font-weight: 700; font-size: 12px;
+      color: #0d0d1a; font-weight: 700; font-size: 11px;
       letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 10px 24px; border: none; border-radius: 6px;
+      padding: 10px 20px; border: none; border-radius: 6px;
       cursor: pointer; transition: opacity 0.2s, transform 0.1s;
+      white-space: nowrap;
     }
     .btn-all-pdf:hover { opacity: 0.88; transform: translateY(-1px); }
     .btn-all-pdf:disabled { opacity: 0.5; cursor: not-allowed; }
+    .theme-btn { background: rgba(197,160,89,0.12); color: var(--gold); border: 1px solid rgba(197,160,89,0.4); }
+    .navy-btn { background: rgba(28,42,53,0.8); color: #c5a059; border: 1px solid rgba(197,160,89,0.4); }
 
     /* ── Progress bar ── */
     #progress-wrap { display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 999; height: 3px; background: rgba(255,255,255,0.1); }
@@ -188,7 +192,11 @@
       <p>Menu Board Gallery &nbsp;·&nbsp; Internal Draft Review</p>
     </div>
   </div>
-  <button class="btn-all-pdf" onclick="downloadAllPDF()" id="btn-all">⬇ Download All as PDF</button>
+  <div class="top-actions">
+    <button class="btn-all-pdf theme-btn" onclick="downloadThemePDF('warm')" id="btn-warm">⬇ Warm Brown PDF</button>
+    <button class="btn-all-pdf theme-btn navy-btn" onclick="downloadThemePDF('navy')" id="btn-navy">⬇ Navy PDF</button>
+    <button class="btn-all-pdf" onclick="downloadAllPDF()" id="btn-all">⬇ All Menus PDF</button>
+  </div>
 </div>
 
 <main>
@@ -462,11 +470,58 @@
     setAllBtns(card, false);
   }
 
+  // Download by theme (warm / navy)
+  async function downloadThemePDF(theme) {
+    const label = theme === 'warm' ? 'Warm Brown' : 'Navy';
+    const btnId = theme === 'warm' ? 'btn-warm' : 'btn-navy';
+    const filename = theme === 'warm'
+      ? 'Casa_De_Rafael_Menu_WarmBrown.pdf'
+      : 'Casa_De_Rafael_Menu_Navy.pdf';
+    const allCards = [...document.querySelectorAll('.menu-card')].filter(c =>
+      theme === 'warm'
+        ? c.dataset.name.includes('Warm Brown')
+        : c.dataset.name.includes('Navy')
+    );
+    const btn = document.getElementById(btnId);
+    const origText = btn.textContent;
+    btn.disabled = true; btn.textContent = '⏳ Generating…';
+    document.getElementById('btn-all').disabled = true;
+    document.getElementById(theme === 'warm' ? 'btn-navy' : 'btn-warm').disabled = true;
+    const { jsPDF } = window.jspdf;
+    let pdf = null;
+    setProgress(0);
+    for (let i = 0; i < allCards.length; i++) {
+      const card = allCards[i];
+      toast(`Rendering ${i + 1} of ${allCards.length}: ${card.dataset.name}…`);
+      setProgress(Math.round((i / allCards.length) * 90));
+      try {
+        const canvas = await captureBoard(card.dataset.file, card.dataset.selector);
+        const w = canvas.width / 2;
+        const h = canvas.height / 2;
+        const orient = w > h ? 'landscape' : 'portrait';
+        if (!pdf) {
+          pdf = new jsPDF({ orientation: orient, unit: 'px', hotfixes: ['px_scaling'], format: [w, h] });
+        } else {
+          pdf.addPage([w, h], orient);
+        }
+        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, w, h);
+      } catch(e) { console.warn('Skipped', card.dataset.name, e.message); }
+    }
+    if (pdf) { pdf.save(filename); }
+    setProgress(100);
+    toast(`${label} PDF downloaded ✓`);
+    btn.disabled = false; btn.textContent = origText;
+    document.getElementById('btn-all').disabled = false;
+    document.getElementById(theme === 'warm' ? 'btn-navy' : 'btn-warm').disabled = false;
+  }
+
   // Download ALL as single PDF
   async function downloadAllPDF() {
     const allCards = document.querySelectorAll('.menu-card');
     const btn = document.getElementById('btn-all');
     btn.disabled = true; btn.textContent = '⏳ Generating…';
+    document.getElementById('btn-warm').disabled = true;
+    document.getElementById('btn-navy').disabled = true;
     const { jsPDF } = window.jspdf;
     let pdf = null;
     const total = allCards.length;
@@ -491,7 +546,9 @@
     if (pdf) { pdf.save('Casa_De_Rafael_Complete_Menu.pdf'); }
     setProgress(100);
     toast('All menus downloaded as PDF ✓');
-    btn.disabled = false; btn.textContent = '⬇ Download All as PDF';
+    btn.disabled = false; btn.textContent = '⬇ All Menus PDF';
+    document.getElementById('btn-warm').disabled = false;
+    document.getElementById('btn-navy').disabled = false;
   }
 
   function setAllBtns(card, disabled) {
