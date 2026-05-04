@@ -1,0 +1,7 @@
+# Large media files - store locally only
+*.MOV
+*.mov
+*.DNG
+*.dng
+*.mp4
+*.MP4
