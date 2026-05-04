@@ -97,19 +97,28 @@
                         <a href="menu.html#trays" class="btn-menu-link" id="view-trays-menu-btn">View Food Tray Menu →</a>
                     </div>
                 </article>
-                <article class="menu-card" data-category="packed">
-                    <div class="menu-card-slideshow" data-slideshow>
-                        <img src="images/food/img_0778.webp" alt="Packed Bento Meals" loading="lazy" class="slide-active">
-                        <img src="images/food/img_0775.webp" alt="Bento Meals Lineup" loading="lazy">
-                        <img src="images/food/img_0780.webp" alt="Packed Meals" loading="lazy">
-                        <div class="menu-card-badge hot">Mix &amp; Match</div>
+                <article class="menu-card menu-card--coming-soon" data-category="packed" style="position:relative;overflow:hidden;">
+                    <!-- Coming Soon Overlay -->
+                    <div class="home-card-coming-overlay">
+                        <div class="home-card-coming-box">
+                            <span class="home-card-coming-icon">🍱</span>
+                            <span class="home-card-coming-title">Cooking soon..</span>
+                            <p class="home-card-coming-sub">Packed Meals are currently being prepared.<br>Stay tuned!</p>
+                        </div>
                     </div>
-                    <div class="menu-card-content">
-                        <div class="menu-card-header"><h3>Packed Meals</h3></div>
-                        <p>Mix and match your bento box, for bulk orders.</p>
-                        <p><strong>Starting at:</strong> ₱119/pack (Rice + Viand)</p>
-                        <div class="menu-card-tags"><span class="tag">From ₱119/pack</span><span class="tag">Min 30 pcs</span></div>
-                        <a href="menu.html#bento" class="btn-menu-link" id="view-packed-menu-btn">View Packed Meals Menu →</a>
+                    <!-- Blurred card content -->
+                    <div style="filter:blur(5px);opacity:0.5;pointer-events:none;user-select:none;">
+                        <div class="menu-card-slideshow">
+                            <img src="images/food/img_0778.webp" alt="Packed Bento Meals" loading="lazy" class="slide-active">
+                            <div class="menu-card-badge hot">Mix &amp; Match</div>
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header"><h3>Packed Meals</h3></div>
+                            <p>Mix and match your bento box, for bulk orders.</p>
+                            <p><strong>Starting at:</strong> ₱119/pack (Rice + Viand)</p>
+                            <div class="menu-card-tags"><span class="tag">From ₱119/pack</span><span class="tag">Min 30 pcs</span></div>
+                            <span class="btn-menu-link">View Packed Meals Menu →</span>
+                        </div>
                     </div>
                 </article>
                 <article class="menu-card" data-category="crew">

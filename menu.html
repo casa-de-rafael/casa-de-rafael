@@ -652,6 +652,96 @@
                 grid-column: span 1;
             }
         }
+
+        /* --- Packed Meals: Coming Soon --- */
+        .menu-tab--coming-soon {
+            opacity: 0.6;
+            cursor: not-allowed !important;
+            position: relative;
+        }
+
+        .tab-coming-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #893e19, #d4a843);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: 6px;
+            vertical-align: middle;
+            text-transform: none;
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.75; transform: scale(0.95); }
+        }
+
+        /* Bento panel wrapper for blur + overlay */
+        .bento-coming-soon-wrapper {
+            position: relative;
+            min-height: 320px;
+        }
+
+        .bento-blurred-content {
+            filter: blur(5px);
+            pointer-events: none;
+            user-select: none;
+            opacity: 0.55;
+        }
+
+        .bento-blur-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(253, 248, 238, 0.55);
+            backdrop-filter: blur(2px);
+            border-radius: 16px;
+        }
+
+        .bento-coming-label {
+            text-align: center;
+            background: linear-gradient(135deg, #fff 0%, #fdf8ee 100%);
+            border: 2px solid #d4a843;
+            border-radius: 20px;
+            padding: 32px 48px;
+            box-shadow: 0 12px 40px rgba(137, 62, 25, 0.18);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bento-coming-icon {
+            font-size: 48px;
+            animation: float-icon 2.8s ease-in-out infinite;
+        }
+
+        @keyframes float-icon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .bento-coming-text {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #893e19;
+            letter-spacing: -0.5px;
+        }
+
+        .bento-coming-sub {
+            font-size: 0.88rem;
+            color: #5a3a10;
+            margin: 0;
+            opacity: 0.8;
+        }
     </style>
 </head>
 
@@ -671,7 +761,7 @@
 
     <div class="menu-tabs">
         <button class="menu-tab active" data-tab="trays" onclick="showTab('trays')">Food Trays</button>
-        <button class="menu-tab" data-tab="bento" onclick="showTab('bento')">Packed Meals</button>
+        <button class="menu-tab menu-tab--coming-soon" data-tab="bento" onclick="return false;" title="Coming soon!">Packed Meals <span class="tab-coming-badge">Cooking soon..</span></button>
         <button class="menu-tab" data-tab="family" onclick="showTab('family')">Family Sets</button>
     </div>
 
@@ -1009,121 +1099,60 @@
 
         <!-- BENTO / PACKED MEALS PANEL -->
         <div class="menu-panel" id="bento">
-            <h2 class="panel-title">Packed Meals <span>(Bento)</span></h2>
-            <p class="panel-sub">Minimum 30 pcs per viand · Perfect for events, meetings &amp; giveaways</p>
-            <div class="note-box">📦 Delivery via <strong>Grab Express</strong> &amp; <strong>Lalamove</strong> · Metro
-                Manila area</div>
+            <div class="bento-coming-soon-wrapper">
+                <div class="bento-blur-overlay">
+                    <div class="bento-coming-label">
+                        <span class="bento-coming-icon">🍱</span>
+                        <span class="bento-coming-text">Cooking soon..</span>
+                        <p class="bento-coming-sub">Packed Meals are currently being prepared. Stay tuned!</p>
+                    </div>
+                </div>
+                <div class="bento-blurred-content" aria-hidden="true">
+                    <h2 class="panel-title">Packed Meals <span>(Bento)</span></h2>
+                    <p class="panel-sub">Minimum 30 pcs per viand · Perfect for events, meetings &amp; giveaways</p>
+                    <div class="note-box">📦 Delivery via <strong>Grab Express</strong> &amp; <strong>Lalamove</strong> · Metro
+                        Manila area</div>
 
-            <h3 style="font-family:'Libre Baskerville',serif;margin-bottom:16px;color:#283a48">2-Grid Bento</h3>
-            <div class="bento-grid">
-                <div class="bento-card">
-                    <div class="bento-label">2-Grid Bento</div>
-                    <div class="bento-name">Rice + Viand</div>
-                    <div class="bento-price">₱119 <small>/pack</small></div>
-                    <ul class="bento-items">
-                        <li>Steamed Rice</li>
-                        <li>Pork or Chicken</li>
-                    </ul>
-                </div>
-                <div class="bento-card">
-                    <div class="bento-label">2-Grid Bento</div>
-                    <div class="bento-name">Pasta + Viand</div>
-                    <div class="bento-price">₱149 <small>/pack</small></div>
-                    <ul class="bento-items">
-                        <li>Pasta / Pancit</li>
-                        <li>Pork or Chicken</li>
-                    </ul>
-                </div>
-            </div>
+                    <h3 style="font-family:'Libre Baskerville',serif;margin-bottom:16px;color:#283a48">2-Grid Bento</h3>
+                    <div class="bento-grid">
+                        <div class="bento-card">
+                            <div class="bento-label">2-Grid Bento</div>
+                            <div class="bento-name">Rice + Viand</div>
+                            <div class="bento-price">₱119 <small>/pack</small></div>
+                            <ul class="bento-items">
+                                <li>Steamed Rice</li>
+                                <li>Pork or Chicken</li>
+                            </ul>
+                        </div>
+                        <div class="bento-card">
+                            <div class="bento-label">2-Grid Bento</div>
+                            <div class="bento-name">Pasta + Viand</div>
+                            <div class="bento-price">₱149 <small>/pack</small></div>
+                            <ul class="bento-items">
+                                <li>Pasta / Pancit</li>
+                                <li>Pork or Chicken</li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <h3 style="font-family:'Libre Baskerville',serif;margin:32px 0 16px;color:#283a48">3-Grid Bento</h3>
-            <div class="bento-grid">
-                <div class="bento-card">
-                    <div class="bento-label">3-Grid</div>
-                    <div class="bento-name">Chicken + Fruit</div>
-                    <div class="bento-price">₱125 <small>/pack</small></div>
-                    <ul class="bento-items">
-                        <li>Steamed Rice</li>
-                        <li>Chicken Viand</li>
-                        <li>Fruit / Dessert</li>
-                    </ul>
-                </div>
-                <div class="bento-card">
-                    <div class="bento-label">3-Grid</div>
-                    <div class="bento-name">Chicken + Veggies</div>
-                    <div class="bento-price">₱129 <small>/pack</small></div>
-                    <ul class="bento-items">
-                        <li>Steamed Rice</li>
-                        <li>Chicken Viand</li>
-                        <li>Mixed Vegetables</li>
-                    </ul>
-                </div>
-                <div class="bento-card">
-                    <div class="bento-label">3-Grid</div>
-                    <div class="bento-name">Pork + Fruit</div>
-                    <div class="bento-price">₱135 <small>/pack</small></div>
-                    <ul class="bento-items">
-                        <li>Steamed Rice</li>
-                        <li>Pork Viand</li>
-                        <li>Fresh Banana</li>
-                    </ul>
-                </div>
-                <div class="bento-card">
-                    <div class="bento-label">3-Grid</div>
-                    <div class="bento-name">Pork + Veggies</div>
-                    <div class="bento-price">₱149 <small>/pack</small></div>
-                    <ul class="bento-items">
-                        <li>Steamed Rice</li>
-                        <li>Pork Viand</li>
-                        <li>Mixed Vegetables</li>
-                    </ul>
-                </div>
-                <div class="bento-card">
-                    <div class="bento-label">3-Grid</div>
-                    <div class="bento-name">Pork + Pasta</div>
-                    <div class="bento-price">₱179 <small>/pack</small></div>
-                    <ul class="bento-items">
-                        <li>Steamed Rice</li>
-                        <li>Pork Viand</li>
-                        <li>Pasta / Pancit</li>
-                    </ul>
-                </div>
-                <div class="bento-card featured">
-                    <div class="bento-label">3-Grid · Best Seller</div>
-                    <div class="bento-name">Pork + Chicken</div>
-                    <div class="bento-price">₱219 <small>/pack</small></div>
-                    <ul class="bento-items">
-                        <li>Steamed Rice</li>
-                        <li>Pork Viand</li>
-                        <li>Chicken Viand</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3 style="font-family:'Libre Baskerville',serif;margin:32px 0 16px;color:#283a48">4-Grid Bento</h3>
-            <div class="bento-grid">
-                <div class="bento-card featured">
-                    <div class="bento-label">4-Grid · Full Combo</div>
-                    <div class="bento-name">Ultimate Bento</div>
-                    <div class="bento-price">₱259 <small>/pack</small></div>
-                    <ul class="bento-items">
-                        <li>Steamed Rice</li>
-                        <li>Pork Viand</li>
-                        <li>Chicken Viand</li>
-                        <li>Pasta / Pancit</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="note-box" style="background:#fff3f3;border-color:#c0392b;color:#7b1a1a;margin-top:24px;">⚠️ <strong>Viand Availability Note:</strong> All viands are available <em>except</em> <strong>Chicken Inasal</strong>, <strong>Tempura</strong>, <strong>Tawilis</strong>, and <strong>Cheesy Bangus</strong> for packed meals.</div>
-
-            <div class="addon-bar">
-                <h3>Add-Ons Available</h3>
-                <div class="addon-grid">
-                    <div class="addon-item"><span>Dessert / Fruit</span><span>+₱45/pack</span></div>
-                    <div class="addon-item"><span>Bottled Water (325ml)</span><span>+₱15/pc</span></div>
-                    <div class="addon-item"><span>Bottled Water (500ml)</span><span>+₱25/pc</span></div>
-                    <div class="addon-item"><span>Beef Upgrade</span><span>+₱100/pack</span></div>
+                    <h3 style="font-family:'Libre Baskerville',serif;margin:32px 0 16px;color:#283a48">3-Grid Bento</h3>
+                    <div class="bento-grid">
+                        <div class="bento-card">
+                            <div class="bento-label">3-Grid</div>
+                            <div class="bento-name">Chicken + Fruit</div>
+                            <div class="bento-price">₱125 <small>/pack</small></div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="bento-label">3-Grid</div>
+                            <div class="bento-name">Pork + Chicken</div>
+                            <div class="bento-price">₱219 <small>/pack</small></div>
+                        </div>
+                        <div class="bento-card featured">
+                            <div class="bento-label">4-Grid · Full Combo</div>
+                            <div class="bento-name">Ultimate Bento</div>
+                            <div class="bento-price">₱259 <small>/pack</small></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
