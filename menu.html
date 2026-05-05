@@ -654,43 +654,232 @@
         }
 
         /* --- Viands Grid for Packed Meals --- */
-        .viands-section { margin-top: 32px; }
-        .viands-section-title { font-family: 'Libre Baskerville', serif; font-size: 20px; color: #283a48; margin-bottom: 16px; text-align: center; }
-        .viands-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-        .viand-category { background: #fff; border: 1px solid #e8e4d5; border-radius: 10px; padding: 16px; }
-        .viand-cat-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 2px solid #d4a843; }
-        .viand-cat-icon { font-size: 20px; }
-        .viand-cat-name { font-family: 'Libre Baskerville', serif; font-size: 13px; font-weight: 700; color: #283a48; }
-        .viand-list { list-style: none; padding: 0; margin: 0; }
-        .viand-list li { font-size: 12px; color: #555; padding: 3px 0; border-bottom: 1px solid #f0ede3; }
-        .viand-list li:last-child { border-bottom: none; }
-        .viand-list li::before { content: '\2713 '; color: #d4a843; font-weight: 700; margin-right: 4px; }
-        @media(max-width:600px) { .viands-grid { grid-template-columns: 1fr 1fr; } }
-        @media(max-width:400px) { .viands-grid { grid-template-columns: 1fr; } }
+        .viands-section {
+            margin-top: 32px;
+        }
+
+        .viands-section-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 20px;
+            color: #283a48;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .viands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .viand-category {
+            background: #fff;
+            border: 1px solid #e8e4d5;
+            border-radius: 10px;
+            padding: 16px;
+        }
+
+        .viand-cat-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #d4a843;
+        }
+
+        .viand-cat-icon {
+            font-size: 20px;
+        }
+
+        .viand-cat-name {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #283a48;
+        }
+
+        .viand-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .viand-list li {
+            font-size: 12px;
+            color: #555;
+            padding: 3px 0;
+            border-bottom: 1px solid #f0ede3;
+        }
+
+        .viand-list li:last-child {
+            border-bottom: none;
+        }
+
+        .viand-list li::before {
+            content: '\2713 ';
+            color: #d4a843;
+            font-weight: 700;
+            margin-right: 4px;
+        }
+
+        @media(max-width:600px) {
+            .viands-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width:400px) {
+            .viands-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
         /* --- Menu Page How to Order + T&C Accordion --- */
-        .menu-info-section { margin-top: 40px; margin-bottom: 8px; }
-        .menu-accordion { border: 1px solid #e8e4d5; border-radius: 12px; overflow: hidden; background: #fff; }
-        .menu-accordion + .menu-accordion { margin-top: 12px; }
-        .accordion-toggle { width: 100%; background: #fdf8ee; border: none; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-family: 'Libre Baskerville', serif; font-size: 16px; font-weight: 700; color: #283a48; transition: background 0.3s; }
-        .accordion-toggle:hover { background: #f5f0e0; }
-        .accordion-toggle .acc-icon { font-size: 20px; margin-right: 12px; }
-        .accordion-toggle .acc-arrow { font-size: 18px; transition: transform 0.3s; color: #893e19; }
-        .accordion-toggle.active .acc-arrow { transform: rotate(180deg); }
-        .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-        .accordion-body.open { max-height: 1200px; }
-        .accordion-inner { padding: 20px 24px 24px; }
-        .acc-steps { display: flex; flex-direction: column; gap: 16px; }
-        .acc-step { display: flex; gap: 14px; align-items: flex-start; }
-        .acc-step-num { width: 32px; height: 32px; min-width: 32px; border-radius: 50%; background: linear-gradient(135deg, #893e19, #d4a843); color: #fff; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-        .acc-step-content h4 { font-family: 'Libre Baskerville', serif; font-size: 14px; color: #283a48; margin-bottom: 4px; }
-        .acc-step-content p { font-size: 13px; color: #555; line-height: 1.6; }
-        .acc-terms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .acc-terms-group h4 { font-family: 'Libre Baskerville', serif; font-size: 13px; color: #893e19; margin-bottom: 8px; }
-        .acc-terms-group ul { list-style: none; padding: 0; }
-        .acc-terms-group ul li { font-size: 12px; color: #555; padding: 3px 0; line-height: 1.6; padding-left: 12px; position: relative; }
-        .acc-terms-group ul li::before { content: '\203A'; position: absolute; left: 0; color: #d4a843; font-weight: 700; }
-        @media(max-width:600px) { .acc-terms-grid { grid-template-columns: 1fr; } }
+        .menu-info-section {
+            margin-top: 40px;
+            margin-bottom: 8px;
+        }
+
+        .menu-accordion {
+            border: 1px solid #e8e4d5;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .menu-accordion+.menu-accordion {
+            margin-top: 12px;
+        }
+
+        .accordion-toggle {
+            width: 100%;
+            background: #fdf8ee;
+            border: none;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #283a48;
+            transition: background 0.3s;
+        }
+
+        .accordion-toggle:hover {
+            background: #f5f0e0;
+        }
+
+        .accordion-toggle .acc-icon {
+            font-size: 20px;
+            margin-right: 12px;
+        }
+
+        .accordion-toggle .acc-arrow {
+            font-size: 18px;
+            transition: transform 0.3s;
+            color: #893e19;
+        }
+
+        .accordion-toggle.active .acc-arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .accordion-body.open {
+            max-height: 1200px;
+        }
+
+        .accordion-inner {
+            padding: 20px 24px 24px;
+        }
+
+        .acc-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .acc-step {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .acc-step-num {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #893e19, #d4a843);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .acc-step-content h4 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 14px;
+            color: #283a48;
+            margin-bottom: 4px;
+        }
+
+        .acc-step-content p {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .acc-terms-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .acc-terms-group h4 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 13px;
+            color: #893e19;
+            margin-bottom: 8px;
+        }
+
+        .acc-terms-group ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .acc-terms-group ul li {
+            font-size: 12px;
+            color: #555;
+            padding: 3px 0;
+            line-height: 1.6;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .acc-terms-group ul li::before {
+            content: '\203A';
+            position: absolute;
+            left: 0;
+            color: #d4a843;
+            font-weight: 700;
+        }
+
+        @media(max-width:600px) {
+            .acc-terms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -1049,8 +1238,10 @@
         <!-- BENTO / PACKED MEALS PANEL -->
         <div class="menu-panel" id="bento">
             <h2 class="panel-title">Packed Meals <span>(Bento)</span></h2>
-            <p class="panel-sub">Minimum 15 orders &middot; All packed meals come with rice by default &middot; Perfect for events, meetings &amp; giveaways</p>
-            <div class="note-box">&#x1F4E6; Delivery via <strong>Grab Express</strong> &amp; <strong>Lalamove</strong> &middot; Metro Manila area</div>
+            <p class="panel-sub">Minimum 15 orders &middot; All packed meals come with rice by default &middot; Perfect
+                for events, meetings &amp; giveaways</p>
+            <div class="note-box">&#x1F4E6; Delivery via <strong>Grab Express</strong> &amp; <strong>Lalamove</strong>
+                &middot; Metro Manila area</div>
 
             <div class="bento-grid">
                 <div class="bento-card">
@@ -1059,7 +1250,7 @@
                     <div class="bento-price">&#8369;189 <small>/pack</small></div>
                     <ul class="bento-items">
                         <li>Steamed Rice</li>
-                        <li>1 Viand (Chicken or Pork)</li>
+                        <li>1 Viand (Chicken, Pork, or Fish)</li>
                     </ul>
                 </div>
                 <div class="bento-card">
@@ -1068,7 +1259,7 @@
                     <div class="bento-price">&#8369;259 <small>/pack</small></div>
                     <ul class="bento-items">
                         <li>Steamed Rice</li>
-                        <li>1 Viand (Chicken or Pork)</li>
+                        <li>1 Viand (Chicken, Pork, or Fish)</li>
                         <li>Vegetable Side</li>
                     </ul>
                 </div>
@@ -1107,14 +1298,90 @@
             <div class="viands-section">
                 <h3 class="viands-section-title">&#127869;&#65039; Available Viands</h3>
                 <div class="viands-grid">
-                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#127831;</span><span class="viand-cat-name">Chicken</span></div><ul class="viand-list"><li>Chicken Cordon Bleu</li><li>Fried Chicken</li><li>Chicken BBQ</li><li>Chicken Wings</li><li>Chicken Salpicao</li><li>Chicken Adobo with Egg</li></ul></div>
-                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#128022;</span><span class="viand-cat-name">Pork</span></div><ul class="viand-list"><li>Lumpia Shanghai</li><li>Lechon Kawali</li><li>Kare-Kare Lechon Kawali</li><li>Sweet and Sour Pork</li><li>Pork Adobo with Egg</li><li>Lechon Paksiw</li><li>Breaded Porkchop</li><li>Pork Steak</li><li>Menudo</li></ul></div>
-                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#128031;</span><span class="viand-cat-name">Fish</span></div><ul class="viand-list"><li>Breaded Fish Fillet w/ Tartar</li><li>Sweet and Sour Fish</li></ul></div>
-                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#129385;</span><span class="viand-cat-name">Beef (+&#8369;25)</span></div><ul class="viand-list"><li>Beef with Mushroom</li><li>Beef Stroganoff</li><li>Beef Caldereta</li><li>Beef Salpicao</li><li>Bistek Tagalog</li></ul></div>
-                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#129388;</span><span class="viand-cat-name">Vegetables</span></div><ul class="viand-list"><li>Pinakbet</li><li>Chopsuey</li><li>Adobong Sitaw</li></ul></div>
-                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#127834;</span><span class="viand-cat-name">Rice</span></div><ul class="viand-list"><li>Plain Rice</li><li>Garlic Rice</li></ul></div>
-                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#127854;</span><span class="viand-cat-name">Dessert (+&#8369;45)</span></div><ul class="viand-list"><li>Mango with Sago</li><li>Buko Pandan with Sago</li><li>Coffee Jelly</li><li>Leche Flan</li></ul></div>
-                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#127837;</span><span class="viand-cat-name">Pasta &amp; Noodles</span></div><ul class="viand-list"><li>Bihon</li><li>Spaghetti</li><li>Baked Mac</li><li>Carbonara</li><li>Pancit Canton Guisado</li></ul></div>
+                    <div class="viand-category">
+                        <div class="viand-cat-header"><span class="viand-cat-icon">&#127831;</span><span
+                                class="viand-cat-name">Chicken</span></div>
+                        <ul class="viand-list">
+                            <li>Chicken Cordon Bleu</li>
+                            <li>Fried Chicken</li>
+                            <li>Chicken BBQ</li>
+                            <li>Chicken Wings</li>
+                            <li>Chicken Salpicao</li>
+                            <li>Chicken Adobo with Egg</li>
+                        </ul>
+                    </div>
+                    <div class="viand-category">
+                        <div class="viand-cat-header"><span class="viand-cat-icon">&#128022;</span><span
+                                class="viand-cat-name">Pork</span></div>
+                        <ul class="viand-list">
+                            <li>Lumpia Shanghai</li>
+                            <li>Lechon Kawali</li>
+                            <li>Kare-Kare Lechon Kawali</li>
+                            <li>Sweet and Sour Pork</li>
+                            <li>Pork Adobo with Egg</li>
+                            <li>Lechon Paksiw</li>
+                            <li>Breaded Porkchop</li>
+                            <li>Pork Steak</li>
+                            <li>Menudo</li>
+                        </ul>
+                    </div>
+                    <div class="viand-category">
+                        <div class="viand-cat-header"><span class="viand-cat-icon">&#128031;</span><span
+                                class="viand-cat-name">Fish</span></div>
+                        <ul class="viand-list">
+                            <li>Breaded Fish Fillet w/ Tartar</li>
+                            <li>Sweet and Sour Fish</li>
+                        </ul>
+                    </div>
+                    <div class="viand-category">
+                        <div class="viand-cat-header"><span class="viand-cat-icon">&#129385;</span><span
+                                class="viand-cat-name">Beef (+&#8369;25)</span></div>
+                        <ul class="viand-list">
+                            <li>Beef with Mushroom</li>
+                            <li>Beef Stroganoff</li>
+                            <li>Beef Caldereta</li>
+                            <li>Beef Salpicao</li>
+                            <li>Bistek Tagalog</li>
+                        </ul>
+                    </div>
+                    <div class="viand-category">
+                        <div class="viand-cat-header"><span class="viand-cat-icon">&#129388;</span><span
+                                class="viand-cat-name">Vegetables</span></div>
+                        <ul class="viand-list">
+                            <li>Pinakbet</li>
+                            <li>Chopsuey</li>
+                            <li>Adobong Sitaw</li>
+                        </ul>
+                    </div>
+                    <div class="viand-category">
+                        <div class="viand-cat-header"><span class="viand-cat-icon">&#127834;</span><span
+                                class="viand-cat-name">Rice</span></div>
+                        <ul class="viand-list">
+                            <li>Plain Rice</li>
+                            <li>Garlic Rice</li>
+                        </ul>
+                    </div>
+                    <div class="viand-category">
+                        <div class="viand-cat-header"><span class="viand-cat-icon">&#127854;</span><span
+                                class="viand-cat-name">Dessert (+&#8369;45)</span></div>
+                        <ul class="viand-list">
+                            <li>Mango with Sago</li>
+                            <li>Buko Pandan with Sago</li>
+                            <li>Coffee Jelly</li>
+                            <li>Leche Flan</li>
+                        </ul>
+                    </div>
+                    <div class="viand-category">
+                        <div class="viand-cat-header"><span class="viand-cat-icon">&#127837;</span><span
+                                class="viand-cat-name">Pasta &amp; Noodles</span></div>
+                        <ul class="viand-list">
+                            <li>Bihon</li>
+                            <li>Spaghetti</li>
+                            <li>Baked Mac</li>
+                            <li>Carbonara</li>
+                            <li>Pancit Canton Guisado</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1160,23 +1427,53 @@
         <!-- HOW TO ORDER + TERMS & CONDITIONS -->
         <div class="menu-info-section">
             <div class="menu-accordion">
-                <button class="accordion-toggle" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('open')">
+                <button class="accordion-toggle"
+                    onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('open')">
                     <span><span class="acc-icon">📋</span> How to Order</span>
                     <span class="acc-arrow">▼</span>
                 </button>
                 <div class="accordion-body">
                     <div class="accordion-inner">
                         <div class="acc-steps">
-                            <div class="acc-step"><div class="acc-step-num">1</div><div class="acc-step-content"><h4>Browse Our Menu</h4><p>Check out our latest offerings above or on our <a href="index.html">home page</a>.</p></div></div>
-                            <div class="acc-step"><div class="acc-step-num">2</div><div class="acc-step-content"><h4>Send Order Details</h4><p>Message us on <a href="https://www.facebook.com/casaderafaelmanila" target="_blank">Facebook</a> with your order details. We require at least <strong>3 days lead time</strong> for regular orders.</p></div></div>
-                            <div class="acc-step"><div class="acc-step-num">3</div><div class="acc-step-content"><h4>Confirm &amp; Pay</h4><p>We’ll send an Order Summary with the total amount and Lalamove Pin. <strong>50% downpayment</strong> to confirm, full payment 2 days before delivery.</p></div></div>
-                            <div class="acc-step"><div class="acc-step-num">4</div><div class="acc-step-content"><h4>Send Proof of Payment</h4><p>Send a screenshot of your transaction receipt via Messenger.</p></div></div>
+                            <div class="acc-step">
+                                <div class="acc-step-num">1</div>
+                                <div class="acc-step-content">
+                                    <h4>Browse Our Menu</h4>
+                                    <p>Check out our latest offerings above or on our <a href="index.html">home
+                                            page</a>.</p>
+                                </div>
+                            </div>
+                            <div class="acc-step">
+                                <div class="acc-step-num">2</div>
+                                <div class="acc-step-content">
+                                    <h4>Send Order Details</h4>
+                                    <p>Message us on <a href="https://www.facebook.com/casaderafaelmanila"
+                                            target="_blank">Facebook</a> with your order details. We require at least
+                                        <strong>3 days lead time</strong> for regular orders.</p>
+                                </div>
+                            </div>
+                            <div class="acc-step">
+                                <div class="acc-step-num">3</div>
+                                <div class="acc-step-content">
+                                    <h4>Confirm &amp; Pay</h4>
+                                    <p>We’ll send an Order Summary with the total amount and Lalamove Pin. <strong>50%
+                                            downpayment</strong> to confirm, full payment 2 days before delivery.</p>
+                                </div>
+                            </div>
+                            <div class="acc-step">
+                                <div class="acc-step-num">4</div>
+                                <div class="acc-step-content">
+                                    <h4>Send Proof of Payment</h4>
+                                    <p>Send a screenshot of your transaction receipt via Messenger.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="menu-accordion">
-                <button class="accordion-toggle" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('open')">
+                <button class="accordion-toggle"
+                    onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('open')">
                     <span><span class="acc-icon">📜</span> Terms &amp; Conditions</span>
                     <span class="acc-arrow">▼</span>
                 </button>
