@@ -2463,59 +2463,162 @@ a:hover {
 }
 
 /* ============================================
-   HOME PAGE — PACKED MEALS COMING SOON CARD
+   HOW TO ORDER + TERMS & CONDITIONS SECTION
    ============================================ */
-.home-card-coming-overlay {
+.how-terms-section {
+    padding: var(--section-padding) 0;
+    background: var(--color-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.how-terms-section::before {
+    content: '';
     position: absolute;
     inset: 0;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(253, 248, 238, 0.45);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(197, 160, 89, 0.06) 0%, transparent 50%, rgba(137, 62, 25, 0.06) 100%);
+    pointer-events: none;
 }
 
-.home-card-coming-box {
-    text-align: center;
-    background: linear-gradient(135deg, #fff 0%, #fdf8ee 100%);
-    border: 2px solid #d4a843;
-    border-radius: 18px;
-    padding: 24px 36px;
-    box-shadow: 0 10px 36px rgba(137, 62, 25, 0.18);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    max-width: 88%;
+.how-terms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
-.home-card-coming-icon {
-    font-size: 38px;
-    animation: float-icon-home 2.8s ease-in-out infinite;
+.how-to-order-card,
+.terms-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    backdrop-filter: blur(8px);
+    transition: all var(--transition);
+}
+
+.how-to-order-card:hover,
+.terms-card:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(197, 160, 89, 0.35);
+    transform: translateY(-4px);
+}
+
+.ht-icon-header {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
     line-height: 1;
 }
 
-@keyframes float-icon-home {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-7px); }
-}
-
-.home-card-coming-title {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 1.4rem;
+.ht-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
     font-weight: 700;
-    color: #893e19;
-    letter-spacing: -0.3px;
-    display: block;
+    color: #fff;
+    margin-bottom: 1.75rem;
 }
 
-.home-card-coming-sub {
+.ht-card-title .text-accent {
+    color: var(--color-warm-light);
+}
+
+/* Order Steps */
+.order-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.order-step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-warm));
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 12px rgba(137, 62, 25, 0.3);
+}
+
+.step-content h4 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--color-warm-light);
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.step-content p {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+.step-content a {
+    color: var(--color-warm-light);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.step-content a:hover {
+    color: #fff;
+}
+
+/* Terms Groups */
+.terms-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.terms-group h4 {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    color: var(--color-warm-light);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.terms-group ul {
+    list-style: none;
+    padding: 0;
+}
+
+.terms-group ul li {
     font-size: 0.82rem;
-    color: #5a3a10;
-    margin: 0;
-    opacity: 0.85;
-    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.25rem 0;
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.terms-group ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--color-warm);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .how-terms-grid {
+        grid-template-columns: 1fr;
+    }
+    .how-to-order-card,
+    .terms-card {
+        padding: 2rem 1.5rem;
+    }
 }

@@ -77,9 +77,9 @@
             </div>
             <div class="menu-filter" role="tablist" aria-label="Menu categories">
                 <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" id="filter-all">All</button>
-                <a href="menu.html#trays" class="filter-btn" id="filter-trays">Food Trays</a>
-                <a href="menu.html#bento" class="filter-btn" id="filter-packed">Packed Meals</a>
-                <a href="menu.html#family" class="filter-btn" id="filter-crew">Family Sets</a>
+                <button class="filter-btn" data-filter="trays" role="tab" id="filter-trays">Food Trays</button>
+                <button class="filter-btn" data-filter="packed" role="tab" id="filter-packed">Packed Meals</button>
+                <button class="filter-btn" data-filter="crew" role="tab" id="filter-crew">Family Sets</button>
             </div>
             <div class="menu-grid" id="menu-grid">
                 <article class="menu-card" data-category="trays">
@@ -97,28 +97,17 @@
                         <a href="menu.html#trays" class="btn-menu-link" id="view-trays-menu-btn">View Food Tray Menu →</a>
                     </div>
                 </article>
-                <article class="menu-card menu-card--coming-soon" data-category="packed" style="position:relative;overflow:hidden;">
-                    <!-- Coming Soon Overlay -->
-                    <div class="home-card-coming-overlay">
-                        <div class="home-card-coming-box">
-                            <span class="home-card-coming-icon">🍱</span>
-                            <span class="home-card-coming-title">Cooking soon..</span>
-                            <p class="home-card-coming-sub">Packed Meals are currently being prepared.<br>Stay tuned!</p>
-                        </div>
+                <article class="menu-card" data-category="packed">
+                    <div class="menu-card-slideshow" data-slideshow>
+                        <img src="images/food/img_0778.webp" alt="Packed Bento Meals" loading="lazy" class="slide-active">
+                        <div class="menu-card-badge hot">Mix &amp; Match</div>
                     </div>
-                    <!-- Blurred card content -->
-                    <div style="filter:blur(5px);opacity:0.5;pointer-events:none;user-select:none;">
-                        <div class="menu-card-slideshow">
-                            <img src="images/food/img_0778.webp" alt="Packed Bento Meals" loading="lazy" class="slide-active">
-                            <div class="menu-card-badge hot">Mix &amp; Match</div>
-                        </div>
-                        <div class="menu-card-content">
-                            <div class="menu-card-header"><h3>Packed Meals</h3></div>
-                            <p>Mix and match your bento box, for bulk orders.</p>
-                            <p><strong>Starting at:</strong> ₱119/pack (Rice + Viand)</p>
-                            <div class="menu-card-tags"><span class="tag">From ₱119/pack</span><span class="tag">Min 30 pcs</span></div>
-                            <span class="btn-menu-link">View Packed Meals Menu →</span>
-                        </div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-header"><h3>Packed Meals</h3></div>
+                        <p>Mix and match your bento box — choose from chicken, pork, beef, fish, veggies &amp; more. Perfect for events, meetings &amp; giveaways.</p>
+                        <p><strong>Starting at:</strong> ₱189/pack (Rice + Viand)</p>
+                        <div class="menu-card-tags"><span class="tag">From ₱189/pack</span><span class="tag">Min 15 orders</span></div>
+                        <a href="menu.html#bento" class="btn-menu-link" id="view-packed-menu-btn">View Packed Meals Menu →</a>
                     </div>
                 </article>
                 <article class="menu-card" data-category="crew">
@@ -218,6 +207,87 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <section class="how-terms-section" aria-label="How to order and terms">
+        <div class="container">
+            <div class="how-terms-grid">
+                <div class="how-to-order-card">
+                    <div class="ht-icon-header">📋</div>
+                    <h3 class="ht-card-title">How to <span class="text-accent">Order</span></h3>
+                    <div class="order-steps">
+                        <div class="order-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Browse Our Menu</h4>
+                                <p>Check out our latest offerings on our <a href="menu.html">menu page</a>.</p>
+                            </div>
+                        </div>
+                        <div class="order-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Send Order Details</h4>
+                                <p>Message us on <a href="https://www.facebook.com/casaderafaelmanila" target="_blank" rel="noopener noreferrer">Facebook</a> with your order details. We require at least <strong>3 days lead time</strong> for regular orders.</p>
+                            </div>
+                        </div>
+                        <div class="order-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Confirm &amp; Pay</h4>
+                                <p>We'll send an Order Summary with the total amount and Lalamove Pin. <strong>50% downpayment</strong> to confirm, full payment 2 days before delivery.</p>
+                            </div>
+                        </div>
+                        <div class="order-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Send Proof of Payment</h4>
+                                <p>Send a screenshot of your transaction receipt via Messenger.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="terms-card">
+                    <div class="ht-icon-header">📜</div>
+                    <h3 class="ht-card-title">Terms &amp; <span class="text-accent">Conditions</span></h3>
+                    <div class="terms-sections">
+                        <div class="terms-group">
+                            <h4>🕐 Ordering &amp; Lead Time</h4>
+                            <ul>
+                                <li><strong>Standard:</strong> At least 3 full days lead time for regular orders</li>
+                                <li><strong>Bulk (Packed Meals):</strong> At least 5 days notice</li>
+                                <li><strong>Min Order (Packed Meals):</strong> 15 packs</li>
+                                <li><strong>Min Order (Food Trays):</strong> 1 tray</li>
+                            </ul>
+                        </div>
+                        <div class="terms-group">
+                            <h4>💳 Payment Policy</h4>
+                            <ul>
+                                <li><strong>50% downpayment</strong> to confirm &amp; reserve your slot</li>
+                                <li>Balance paid in full <strong>2 days before</strong> delivery/pick-up</li>
+                                <li><strong>GoTyme:</strong> Clarissa Refugio | 016698529083</li>
+                                <li><strong>GCash:</strong> Clarissa Refugio | 09121815292</li>
+                            </ul>
+                        </div>
+                        <div class="terms-group">
+                            <h4>🚚 Delivery &amp; Pick-Up</h4>
+                            <ul>
+                                <li>Customers book their own courier (Lalamove / Grab)</li>
+                                <li>We provide an official Lalamove Pin Screenshot</li>
+                                <li>Recommend <strong>Car or MPV</strong> for food trays</li>
+                            </ul>
+                        </div>
+                        <div class="terms-group">
+                            <h4>❌ Cancellations</h4>
+                            <ul>
+                                <li>Changes finalized at least <strong>2 days before</strong> delivery</li>
+                                <li>Cancellations &lt;24hrs: <strong>50% cancellation fee</strong></li>
+                                <li>Force majeure: penalty-free if 48hrs+ before delivery</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

@@ -653,95 +653,44 @@
             }
         }
 
-        /* --- Packed Meals: Coming Soon --- */
-        .menu-tab--coming-soon {
-            opacity: 0.6;
-            cursor: not-allowed !important;
-            position: relative;
-        }
+        /* --- Viands Grid for Packed Meals --- */
+        .viands-section { margin-top: 32px; }
+        .viands-section-title { font-family: 'Libre Baskerville', serif; font-size: 20px; color: #283a48; margin-bottom: 16px; text-align: center; }
+        .viands-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+        .viand-category { background: #fff; border: 1px solid #e8e4d5; border-radius: 10px; padding: 16px; }
+        .viand-cat-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 2px solid #d4a843; }
+        .viand-cat-icon { font-size: 20px; }
+        .viand-cat-name { font-family: 'Libre Baskerville', serif; font-size: 13px; font-weight: 700; color: #283a48; }
+        .viand-list { list-style: none; padding: 0; margin: 0; }
+        .viand-list li { font-size: 12px; color: #555; padding: 3px 0; border-bottom: 1px solid #f0ede3; }
+        .viand-list li:last-child { border-bottom: none; }
+        .viand-list li::before { content: '\2713 '; color: #d4a843; font-weight: 700; margin-right: 4px; }
+        @media(max-width:600px) { .viands-grid { grid-template-columns: 1fr 1fr; } }
+        @media(max-width:400px) { .viands-grid { grid-template-columns: 1fr; } }
 
-        .tab-coming-badge {
-            display: inline-block;
-            background: linear-gradient(90deg, #893e19, #d4a843);
-            color: #fff;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            padding: 2px 8px;
-            border-radius: 20px;
-            margin-left: 6px;
-            vertical-align: middle;
-            text-transform: none;
-            animation: pulse-badge 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse-badge {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.75; transform: scale(0.95); }
-        }
-
-        /* Bento panel wrapper for blur + overlay */
-        .bento-coming-soon-wrapper {
-            position: relative;
-            min-height: 320px;
-        }
-
-        .bento-blurred-content {
-            filter: blur(5px);
-            pointer-events: none;
-            user-select: none;
-            opacity: 0.55;
-        }
-
-        .bento-blur-overlay {
-            position: absolute;
-            inset: 0;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(253, 248, 238, 0.55);
-            backdrop-filter: blur(2px);
-            border-radius: 16px;
-        }
-
-        .bento-coming-label {
-            text-align: center;
-            background: linear-gradient(135deg, #fff 0%, #fdf8ee 100%);
-            border: 2px solid #d4a843;
-            border-radius: 20px;
-            padding: 32px 48px;
-            box-shadow: 0 12px 40px rgba(137, 62, 25, 0.18);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .bento-coming-icon {
-            font-size: 48px;
-            animation: float-icon 2.8s ease-in-out infinite;
-        }
-
-        @keyframes float-icon {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        .bento-coming-text {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 1.9rem;
-            font-weight: 700;
-            color: #893e19;
-            letter-spacing: -0.5px;
-        }
-
-        .bento-coming-sub {
-            font-size: 0.88rem;
-            color: #5a3a10;
-            margin: 0;
-            opacity: 0.8;
-        }
+        /* --- Menu Page How to Order + T&C Accordion --- */
+        .menu-info-section { margin-top: 40px; margin-bottom: 8px; }
+        .menu-accordion { border: 1px solid #e8e4d5; border-radius: 12px; overflow: hidden; background: #fff; }
+        .menu-accordion + .menu-accordion { margin-top: 12px; }
+        .accordion-toggle { width: 100%; background: #fdf8ee; border: none; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-family: 'Libre Baskerville', serif; font-size: 16px; font-weight: 700; color: #283a48; transition: background 0.3s; }
+        .accordion-toggle:hover { background: #f5f0e0; }
+        .accordion-toggle .acc-icon { font-size: 20px; margin-right: 12px; }
+        .accordion-toggle .acc-arrow { font-size: 18px; transition: transform 0.3s; color: #893e19; }
+        .accordion-toggle.active .acc-arrow { transform: rotate(180deg); }
+        .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .accordion-body.open { max-height: 1200px; }
+        .accordion-inner { padding: 20px 24px 24px; }
+        .acc-steps { display: flex; flex-direction: column; gap: 16px; }
+        .acc-step { display: flex; gap: 14px; align-items: flex-start; }
+        .acc-step-num { width: 32px; height: 32px; min-width: 32px; border-radius: 50%; background: linear-gradient(135deg, #893e19, #d4a843); color: #fff; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .acc-step-content h4 { font-family: 'Libre Baskerville', serif; font-size: 14px; color: #283a48; margin-bottom: 4px; }
+        .acc-step-content p { font-size: 13px; color: #555; line-height: 1.6; }
+        .acc-terms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .acc-terms-group h4 { font-family: 'Libre Baskerville', serif; font-size: 13px; color: #893e19; margin-bottom: 8px; }
+        .acc-terms-group ul { list-style: none; padding: 0; }
+        .acc-terms-group ul li { font-size: 12px; color: #555; padding: 3px 0; line-height: 1.6; padding-left: 12px; position: relative; }
+        .acc-terms-group ul li::before { content: '\203A'; position: absolute; left: 0; color: #d4a843; font-weight: 700; }
+        @media(max-width:600px) { .acc-terms-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 
@@ -761,7 +710,7 @@
 
     <div class="menu-tabs">
         <button class="menu-tab active" data-tab="trays" onclick="showTab('trays')">Food Trays</button>
-        <button class="menu-tab menu-tab--coming-soon" data-tab="bento" onclick="return false;" title="Coming soon!">Packed Meals <span class="tab-coming-badge">Cooking soon..</span></button>
+        <button class="menu-tab" data-tab="bento" onclick="showTab('bento')">Packed Meals</button>
         <button class="menu-tab" data-tab="family" onclick="showTab('family')">Family Sets</button>
     </div>
 
@@ -968,7 +917,7 @@
                 </div>
                 <div class="tray-cat">
                     <div class="cat-header"><span class="cat-icon">🍝</span><span class="cat-name">Pasta &amp;
-                            Pancit</span></div>
+                            Noodles</span></div>
                     <table class="price-table">
                         <thead>
                             <tr>
@@ -1099,64 +1048,76 @@
 
         <!-- BENTO / PACKED MEALS PANEL -->
         <div class="menu-panel" id="bento">
-            <div class="bento-coming-soon-wrapper">
-                <div class="bento-blur-overlay">
-                    <div class="bento-coming-label">
-                        <span class="bento-coming-icon">🍱</span>
-                        <span class="bento-coming-text">Cooking soon..</span>
-                        <p class="bento-coming-sub">Packed Meals are currently being prepared. Stay tuned!</p>
-                    </div>
+            <h2 class="panel-title">Packed Meals <span>(Bento)</span></h2>
+            <p class="panel-sub">Minimum 15 orders &middot; All packed meals come with rice by default &middot; Perfect for events, meetings &amp; giveaways</p>
+            <div class="note-box">&#x1F4E6; Delivery via <strong>Grab Express</strong> &amp; <strong>Lalamove</strong> &middot; Metro Manila area</div>
+
+            <div class="bento-grid">
+                <div class="bento-card">
+                    <div class="bento-label">2-Grid</div>
+                    <div class="bento-name">1 Viand</div>
+                    <div class="bento-price">&#8369;189 <small>/pack</small></div>
+                    <ul class="bento-items">
+                        <li>Steamed Rice</li>
+                        <li>1 Viand (Chicken or Pork)</li>
+                    </ul>
                 </div>
-                <div class="bento-blurred-content" aria-hidden="true">
-                    <h2 class="panel-title">Packed Meals <span>(Bento)</span></h2>
-                    <p class="panel-sub">Minimum 30 pcs per viand · Perfect for events, meetings &amp; giveaways</p>
-                    <div class="note-box">📦 Delivery via <strong>Grab Express</strong> &amp; <strong>Lalamove</strong> · Metro
-                        Manila area</div>
+                <div class="bento-card">
+                    <div class="bento-label">3-Grid</div>
+                    <div class="bento-name">1 Viand + Vegetable</div>
+                    <div class="bento-price">&#8369;259 <small>/pack</small></div>
+                    <ul class="bento-items">
+                        <li>Steamed Rice</li>
+                        <li>1 Viand (Chicken or Pork)</li>
+                        <li>Vegetable Side</li>
+                    </ul>
+                </div>
+                <div class="bento-card featured">
+                    <div class="bento-label">3-Grid</div>
+                    <div class="bento-name">2 Viands</div>
+                    <div class="bento-price">&#8369;329 <small>/pack</small></div>
+                    <ul class="bento-items">
+                        <li>Steamed Rice</li>
+                        <li>2 Viands (Chicken, Pork, or Fish)</li>
+                    </ul>
+                </div>
+                <div class="bento-card featured">
+                    <div class="bento-label">4-Grid &middot; Best Value</div>
+                    <div class="bento-name">2 Viands + Vegetable</div>
+                    <div class="bento-price">&#8369;379 <small>/pack</small></div>
+                    <ul class="bento-items">
+                        <li>Steamed Rice</li>
+                        <li>2 Viands (Chicken, Pork, or Fish)</li>
+                        <li>Vegetable Side</li>
+                    </ul>
+                </div>
+            </div>
 
-                    <h3 style="font-family:'Libre Baskerville',serif;margin-bottom:16px;color:#283a48">2-Grid Bento</h3>
-                    <div class="bento-grid">
-                        <div class="bento-card">
-                            <div class="bento-label">2-Grid Bento</div>
-                            <div class="bento-name">Rice + Viand</div>
-                            <div class="bento-price">₱119 <small>/pack</small></div>
-                            <ul class="bento-items">
-                                <li>Steamed Rice</li>
-                                <li>Pork or Chicken</li>
-                            </ul>
-                        </div>
-                        <div class="bento-card">
-                            <div class="bento-label">2-Grid Bento</div>
-                            <div class="bento-name">Pasta + Viand</div>
-                            <div class="bento-price">₱149 <small>/pack</small></div>
-                            <ul class="bento-items">
-                                <li>Pasta / Pancit</li>
-                                <li>Pork or Chicken</li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="addon-bar">
+                <h3>Upgrades &amp; Add-Ons</h3>
+                <div class="addon-grid">
+                    <div class="addon-item"><span>Upgrade Rice to Pasta</span><span>+&#8369;45/pack</span></div>
+                    <div class="addon-item"><span>Add-on: Dessert</span><span>+&#8369;45/pack</span></div>
+                    <div class="addon-item"><span>Beef (additional)</span><span>+&#8369;25/pack</span></div>
+                    <div class="addon-item"><span>Bottled Water (325ml)</span><span>+&#8369;15/pc</span></div>
+                    <div class="addon-item"><span>Bottled Water (500ml)</span><span>+&#8369;25/pc</span></div>
+                </div>
+            </div>
 
-                    <h3 style="font-family:'Libre Baskerville',serif;margin:32px 0 16px;color:#283a48">3-Grid Bento</h3>
-                    <div class="bento-grid">
-                        <div class="bento-card">
-                            <div class="bento-label">3-Grid</div>
-                            <div class="bento-name">Chicken + Fruit</div>
-                            <div class="bento-price">₱125 <small>/pack</small></div>
-                        </div>
-                        <div class="bento-card">
-                            <div class="bento-label">3-Grid</div>
-                            <div class="bento-name">Pork + Chicken</div>
-                            <div class="bento-price">₱219 <small>/pack</small></div>
-                        </div>
-                        <div class="bento-card featured">
-                            <div class="bento-label">4-Grid · Full Combo</div>
-                            <div class="bento-name">Ultimate Bento</div>
-                            <div class="bento-price">₱259 <small>/pack</small></div>
-                        </div>
-                    </div>
+            <div class="viands-section">
+                <h3 class="viands-section-title">&#127869;&#65039; Available Viands</h3>
+                <div class="viands-grid">
+                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#127831;</span><span class="viand-cat-name">Chicken</span></div><ul class="viand-list"><li>Chicken Cordon Bleu</li><li>Fried Chicken</li><li>Chicken BBQ</li><li>Chicken Wings</li><li>Chicken Salpicao</li><li>Chicken Adobo with Egg</li></ul></div>
+                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#128022;</span><span class="viand-cat-name">Pork</span></div><ul class="viand-list"><li>Lumpia Shanghai</li><li>Lechon Kawali</li><li>Kare-Kare Lechon Kawali</li><li>Sweet and Sour Pork</li><li>Pork Adobo with Egg</li><li>Lechon Paksiw</li><li>Breaded Porkchop</li><li>Pork Steak</li><li>Menudo</li></ul></div>
+                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#128031;</span><span class="viand-cat-name">Fish</span></div><ul class="viand-list"><li>Breaded Fish Fillet w/ Tartar</li><li>Sweet and Sour Fish</li></ul></div>
+                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#129385;</span><span class="viand-cat-name">Beef (+&#8369;25)</span></div><ul class="viand-list"><li>Beef with Mushroom</li><li>Beef Stroganoff</li><li>Beef Caldereta</li><li>Beef Salpicao</li><li>Bistek Tagalog</li></ul></div>
+                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#129388;</span><span class="viand-cat-name">Vegetables</span></div><ul class="viand-list"><li>Pinakbet</li><li>Chopsuey</li><li>Adobong Sitaw</li></ul></div>
+                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#127834;</span><span class="viand-cat-name">Rice</span></div><ul class="viand-list"><li>Plain Rice</li><li>Garlic Rice</li></ul></div>
+                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#127854;</span><span class="viand-cat-name">Dessert (+&#8369;45)</span></div><ul class="viand-list"><li>Mango with Sago</li><li>Buko Pandan with Sago</li><li>Coffee Jelly</li><li>Leche Flan</li></ul></div>
+                    <div class="viand-category"><div class="viand-cat-header"><span class="viand-cat-icon">&#127837;</span><span class="viand-cat-name">Pasta &amp; Noodles</span></div><ul class="viand-list"><li>Bihon</li><li>Spaghetti</li><li>Baked Mac</li><li>Carbonara</li><li>Pancit Canton Guisado</li></ul></div>
                 </div>
             </div>
         </div>
-
         <!-- FAMILY SET PANEL -->
         <div class="menu-panel" id="family">
             <h2 class="panel-title">Family <span>Set</span></h2>
@@ -1174,7 +1135,7 @@
                                 style='color:#888;font-size:12px'>(choose any pork dish)</em></span></li>
                     <li><span class="fi-icon">🍗</span><span class="fi-label">1 Chicken Tray <em
                                 style='color:#888;font-size:12px'>(choose any chicken dish)</em></span></li>
-                    <li><span class="fi-icon">🍝</span><span class="fi-label">1 Pancit / Pasta Tray</span></li>
+                    <li><span class="fi-icon">🍝</span><span class="fi-label">1 Pasta / Noodles Tray</span></li>
                     <li><span class="fi-icon">🐟</span><span class="fi-label">1 Fish Tray <em
                                 style='color:#888;font-size:12px'>(choose any fish dish)</em></span></li>
                     <li><span class="fi-icon">🥬</span><span class="fi-label">1 Vegetable Tray <em
@@ -1187,10 +1148,77 @@
             <div class="addon-bar">
                 <h3>Add to Your Family Set</h3>
                 <div class="addon-grid">
-                    <div class="addon-item"><span>Plain Rice Tray (Med)</span><span>₱499</span></div>
-                    <div class="addon-item"><span>Garlic Rice Tray (Med)</span><span>₱799</span></div>
+                    <div class="addon-item"><span>Plain Rice Tray (Med)</span><span>₱350</span></div>
+                    <div class="addon-item"><span>Garlic Rice Tray (Med)</span><span>₱400</span></div>
                     <div class="addon-item"><span>Extra Beef Caldereta (Med)</span><span>₱1,699</span></div>
                     <div class="addon-item"><span>Extra Beef Caldereta (Lrg)</span><span>₱3,099</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- HOW TO ORDER + TERMS & CONDITIONS -->
+        <div class="menu-info-section">
+            <div class="menu-accordion">
+                <button class="accordion-toggle" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('open')">
+                    <span><span class="acc-icon">📋</span> How to Order</span>
+                    <span class="acc-arrow">▼</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="accordion-inner">
+                        <div class="acc-steps">
+                            <div class="acc-step"><div class="acc-step-num">1</div><div class="acc-step-content"><h4>Browse Our Menu</h4><p>Check out our latest offerings above or on our <a href="index.html">home page</a>.</p></div></div>
+                            <div class="acc-step"><div class="acc-step-num">2</div><div class="acc-step-content"><h4>Send Order Details</h4><p>Message us on <a href="https://www.facebook.com/casaderafaelmanila" target="_blank">Facebook</a> with your order details. We require at least <strong>3 days lead time</strong> for regular orders.</p></div></div>
+                            <div class="acc-step"><div class="acc-step-num">3</div><div class="acc-step-content"><h4>Confirm &amp; Pay</h4><p>We’ll send an Order Summary with the total amount and Lalamove Pin. <strong>50% downpayment</strong> to confirm, full payment 2 days before delivery.</p></div></div>
+                            <div class="acc-step"><div class="acc-step-num">4</div><div class="acc-step-content"><h4>Send Proof of Payment</h4><p>Send a screenshot of your transaction receipt via Messenger.</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-accordion">
+                <button class="accordion-toggle" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('open')">
+                    <span><span class="acc-icon">📜</span> Terms &amp; Conditions</span>
+                    <span class="acc-arrow">▼</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="accordion-inner">
+                        <div class="acc-terms-grid">
+                            <div class="acc-terms-group">
+                                <h4>🕐 Ordering &amp; Lead Time</h4>
+                                <ul>
+                                    <li><strong>Standard:</strong> At least 3 full days lead time</li>
+                                    <li><strong>Bulk (Packed Meals):</strong> At least 5 days notice</li>
+                                    <li><strong>Min Order (Packed Meals):</strong> 15 packs</li>
+                                    <li><strong>Min Order (Food Trays):</strong> 1 tray</li>
+                                </ul>
+                            </div>
+                            <div class="acc-terms-group">
+                                <h4>💳 Payment Policy</h4>
+                                <ul>
+                                    <li><strong>50% downpayment</strong> to confirm &amp; reserve your slot</li>
+                                    <li>Balance paid in full <strong>2 days before</strong> delivery/pick-up</li>
+                                    <li><strong>GoTyme:</strong> Clarissa Refugio | 016698529083</li>
+                                    <li><strong>GCash:</strong> Clarissa Refugio | 09121815292</li>
+                                </ul>
+                            </div>
+                            <div class="acc-terms-group">
+                                <h4>🚚 Delivery &amp; Pick-Up</h4>
+                                <ul>
+                                    <li>Customers book their own courier (Lalamove / Grab)</li>
+                                    <li>We provide an official Lalamove Pin Screenshot</li>
+                                    <li>Recommend <strong>Car or MPV</strong> for food trays</li>
+                                </ul>
+                            </div>
+                            <div class="acc-terms-group">
+                                <h4>❌ Cancellations</h4>
+                                <ul>
+                                    <li>Changes finalized at least <strong>2 days before</strong> delivery</li>
+                                    <li>Cancellations &lt;24hrs: <strong>50% cancellation fee</strong></li>
+                                    <li>Force majeure: penalty-free if 48hrs+ before delivery</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
